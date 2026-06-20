@@ -98,6 +98,15 @@ h1 {
   color:var(--p);
   margin-bottom:24px;
 }
+h3 {
+  font-family:'Outfit','Google Sans Flex',sans-serif;
+  font-size:20px;
+  font-weight:500;
+  color:var(--ons);
+  margin-top:24px;
+  margin-bottom:12px;
+}
+
 h2 {
   font-family:'Outfit','Google Sans Flex',sans-serif;
   font-size:24px;
@@ -158,90 +167,124 @@ hr {
   
   <hr>
 
-  <h2>1. Overview</h2>
-  <p>KydeOS is a free, open-source operating system designed and maintained by a single independent developer. This Privacy Policy explains what data KydeOS collects during normal system operation, how that data is handled, and what rights you hold as a user of this software.</p>
-  <p>The guiding principle behind KydeOS's approach to privacy is straightforward: collect the absolute minimum necessary, be fully transparent about what is collected, and never share user data with third parties under any circumstances. KydeOS is not a commercial product. There are no investors, no advertisers, no monetization strategies dependent on user data. This project exists solely as a personal, open-source endeavor.</p>
-  <p>Because KydeOS is fully open source under the GPLv3, every line of code that runs on your machine is publicly available and auditable by anyone. This means you are never required to take our word for it — you can verify exactly what KydeOS does and does not do with your data by reading the source code directly.</p>
+    <h2>1. Overview</h2>
+  <p>KydeOS is a free, open-source operating system designed and maintained by a single independent developer. This Privacy Policy explains what data KydeOS may collect, how it is used, and what control you have over it.</p>
+  <p>Privacy in KydeOS is opt-in by design. During the initial setup process (OOBE), you are presented with a Privacy & Diagnostics screen where you can individually enable or disable each data collection feature before the system is fully active. Every toggle defaults to off, with the exception of Crash Reports which defaults to on to help identify critical bugs during early development. You can change any of these settings at any time after setup via System Settings.</p>
+  <p>KydeOS has no advertising business model, no investors requiring growth metrics, and no commercial interest in your data. This project exists as a personal, open-source endeavor.</p>
+
+  <hr>
+  
+  <h2>2. Privacy & Diagnostics Settings</h2>
+  <p>During setup, you are given direct control over the following three settings. None of these features transmit any data without your knowledge.</p>
+
+  <h3>2.1 Location Services</h3>
+  <p><strong>Default state:</strong> OFF</p>
+  <p>When enabled, Location Services allows KydeOS and supported applications to access an estimated location derived from your network or hardware. This is used to assist apps that benefit from location context, such as weather, maps, and automatic time zone detection.</p>
+  <p>When disabled, no location data of any kind is collected, accessed, or transmitted by the system. Individual applications you install may have their own location permission requests, which are handled separately and are not governed by this system-level toggle.</p>
+  <p>You can change this setting at any time in System Settings.</p>
+
+  <h3>2.2 Telemetry & Usage Data</h3>
+  <p><strong>Default state:</strong> OFF</p>
+  <p>When enabled, KydeOS may collect anonymous, aggregated data about how the system is used. This may include general information such as which system features are accessed, session durations, or performance metrics. The purpose of this data is strictly to understand how KydeOS is used in practice and to guide future development decisions.</p>
+  <p>This data is:</p>
+  <ul>
+    <li>Anonymous — it is not linked to your identity, account, or any personally identifiable information</li>
+    <li>Aggregated — individual sessions are not stored or analyzed in isolation</li>
+    <li>Never sold or shared with any third party</li>
+    <li>Never used for advertising purposes of any kind</li>
+  </ul>
+  <p>When disabled, no usage data or telemetry of any kind is collected or transmitted by the system.</p>
+  <p>You can change this setting at any time in System Settings.</p>
+
+  <h3>2.3 Crash Reports</h3>
+  <p><strong>Default state:</strong> ON</p>
+  <p>When enabled, KydeOS automatically collects and transmits error logs when the system or a core system component crashes. These reports contain technical diagnostic information such as stack traces, system state at the time of the crash, kernel version, and hardware architecture. Crash reports help the developer identify and fix critical bugs, especially during the early Aurora development phase.</p>
+  <p>Crash reports do not contain:</p>
+  <ul>
+    <li>Your name, email address, or any account information</li>
+    <li>The contents of your files, documents, or clipboard</li>
+    <li>Your browsing history or application usage</li>
+    <li>Any personally identifiable information</li>
+  </ul>
+  <p>When disabled, no crash or error data is ever transmitted from your device.</p>
+  <p>You can change this setting at any time in System Settings.</p>
 
   <hr>
 
-  <h2>2. What Data KydeOS Collects</h2>
-  <p>Under normal operating conditions, KydeOS collects no personal data whatsoever. No telemetry pipelines exist in the base system. No crash reports are transmitted automatically. No usage analytics, behavioral metrics, hardware fingerprints, or diagnostic data of any kind are sent to any remote server without your explicit, informed consent.</p>
-  <p>The following specific scenarios may involve limited and unavoidable data exposure:</p>
+  <h2>3. Data We Never Collect</h2>
+  <p>Regardless of your Privacy & Diagnostics settings, KydeOS never collects the following under any circumstances:</p>
   <ul>
-    <li><strong>System update checks:</strong> When KydeOS checks for available system updates, a standard network request is made to the update server. This request will expose your IP address to that server as a natural consequence of how internet networking works. No other data is transmitted alongside this request. Your IP address is not logged, stored, or cross-referenced with any user account or identity.</li>
-    <li><strong>KydeStore — developer and alpha tester registration:</strong> KydeStore is the native software center built into KydeOS. An alpha developer program is available, allowing early community members to register as testers. If you choose to register for this program inside KydeStore, the information you voluntarily submit during registration — which may include a username, email address, or similar identifiers — is collected solely for the purpose of managing that program. This information is not sold, shared with third parties, used for advertising, or processed for any purpose beyond the developer program itself.</li>
-    <li><strong>Third-party applications:</strong> KydeOS supports installation of software via .deb packages, Flatpak, and AppImage. Applications installed through these formats are entirely independent software projects with their own codebases, developers, and privacy practices. KydeOS has no visibility into, control over, or responsibility for the data practices of any third-party application you choose to install. You should consult the privacy policy of each application individually.</li>
-    <li><strong>Krowser — the built-in browser:</strong> Krowser is a first-party browser developed by the KydeOS developer and bundled as the default browsing experience. When you use Krowser to browse the web, it connects to the websites you visit. Those websites operate under their own privacy policies and may collect data according to their own practices. Krowser does not transmit your browsing history, search queries, visited URLs, or any usage data back to the KydeOS developer. Krowser is a browser, not a surveillance tool.</li>
+    <li>Names, email addresses, or personally identifiable information during normal OS operation</li>
+    <li>The contents of your files, documents, photos, or any stored data</li>
+    <li>Keyboard input or clipboard contents</li>
+    <li>Browsing history or Krowser activity</li>
+    <li>Hardware serial numbers or unique device identifiers used for tracking</li>
+    <li>Location data when Location Services is disabled</li>
+    <li>Any data sold to or shared with advertisers, data brokers, or commercial third parties</li>
   </ul>
 
   <hr>
 
-  <h2>3. What Data KydeOS Does Not Collect</h2>
-  <p>To be fully explicit, KydeOS does not collect, transmit, store, or process any of the following:</p>
+  <h2>4. Krowser</h2>
+  <p>Krowser is the first-party browser bundled with KydeOS. When you browse the web, Krowser connects to the websites you visit — those websites operate under their own privacy policies. Krowser does not report your browsing history, visited URLs, or search queries back to the KydeOS developer in any form, regardless of your Privacy & Diagnostics settings.</p>
+
+  <hr>
+
+  <h2>5. KydeStore & Developer Program</h2>
+  <p>KydeStore is the native software center in KydeOS. An alpha developer program is available, allowing early community members to register as testers directly inside KydeStore. If you register, the information you voluntarily submit is used solely for managing the program and is never shared with third parties.</p>
+
+  <hr>
+
+  <h2>6. Third-Party Applications</h2>
+  <p>Applications installed via .deb, Flatpak, or AppImage are independent software with their own developers and privacy practices. KydeOS has no control over or responsibility for the data practices of third-party applications. Consult each application's privacy policy individually.</p>
+
+  <hr>
+
+  <h2>7. System Update Checks</h2>
+  <p>When KydeOS checks for available updates, a standard network request is made to the update server. Your IP address is exposed to that server as an unavoidable consequence of internet networking. No additional data is transmitted alongside this request.</p>
+
+  <hr>
+
+  <h2>8. Open Source as a Privacy Guarantee</h2>
+  <p>KydeOS is fully open source under the GPLv3. Every component of the system is publicly auditable at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a>. You are never required to take our word for anything stated in this policy — you can verify it directly in the source code. If you discover any undisclosed data collection or network transmission in KydeOS, please report it immediately as a privacy issue on GitHub.</p>
+
+  <hr>
+
+  <h2>9. Security</h2>
+  <p>KydeOS includes the following system-level security features:</p>
   <ul>
-    <li>Full names, email addresses, or any personally identifiable information during normal OS operation</li>
-    <li>Hardware identifiers, device serial numbers, or machine fingerprints</li>
-    <li>Geographic location data of any kind</li>
-    <li>Usage statistics, session durations, or behavioral analytics</li>
-    <li>Crash reports or diagnostic logs transmitted automatically</li>
-    <li>Keyboard input, clipboard contents, or on-screen activity</li>
-    <li>Installed application lists</li>
-    <li>Network activity logs or browsing history</li>
-    <li>Any data sold to, shared with, or accessible by advertisers, data brokers, or any commercial third party</li>
+    <li>LUKS2 full-disk encryption to protect data stored on your device at rest</li>
+    <li>AppArmor and SELinux sandboxing to isolate applications</li>
+    <li>Minimal default service configuration to reduce attack surface</li>
+    <li>Security patches from Debian Stable upstream, with critical fixes applied out-of-cycle when necessary</li>
   </ul>
 
   <hr>
 
-  <h2>4. Open Source as a Privacy Guarantee</h2>
-  <p>KydeOS is licensed under the GNU General Public License v3.0. This is not merely a legal formality — it is a structural privacy guarantee. Every component of KydeOS that runs on your machine is publicly available for inspection at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a>.</p>
-  <p>Anyone with the technical knowledge to do so can audit the codebase to verify that no hidden telemetry, background data collection, or undisclosed network communication exists anywhere in the system. This level of transparency is not possible with closed-source operating systems, and it is one of the core reasons KydeOS is and will remain fully open source.</p>
-  <p>If you discover any behavior in KydeOS that appears to contradict this policy — any unexpected network request, any undisclosed data transmission, or any privacy-relevant code that is not documented here — please report it immediately as a security or privacy issue on the GitHub repository. Such reports are taken with the utmost seriousness.</p>
+  <h2>10. Your Rights</h2>
+  <p>If you participated in the KydeStore developer program or any associated service, you have the right to request access to, correction of, or deletion of any personal data held about you. Contact the developer via GitHub at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a>.</p>
 
   <hr>
 
-  <h2>5. Security</h2>
-  <p>Although KydeOS does not collect personal data, the project takes system-level security seriously. The following security features are included in KydeOS:</p>
+  <h2>11. Children's Privacy</h2>
+  <p>KydeOS does not knowingly collect personal data from children under the age of 13. If you believe a minor has submitted personal information through KydeStore or any associated service, contact the developer via GitHub so it can be promptly removed.</p>
+
+  <hr>
+
+  <h2>12. Changes to This Policy</h2>
+  <p>All changes to this policy will be committed to the public GitHub repository with a full auditable history. The effective date at the top of this document will be updated with each revision. Continued use of KydeOS after changes are published constitutes acceptance of the updated policy.</p>
+
+  <hr>
+
+  <h2>13. Contact</h2>
+  <p>For privacy-related questions, concerns, or data requests:</p>
   <ul>
-    <li>LUKS2 full-disk encryption support, protecting all data stored on your device at rest</li>
-    <li>AppArmor and SELinux sandboxing to isolate applications and limit potential damage from compromised software</li>
-    <li>A minimal default service configuration, reducing the attack surface by avoiding unnecessary background daemons and exposed ports</li>
-    <li>Regular security patches applied from the Debian Stable upstream, with critical fixes applied out-of-cycle whenever necessary</li>
+    <li>GitHub: <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></li>
   </ul>
 
   <hr>
 
-  <h2>6. Your Rights</h2>
-  <p>Because KydeOS does not collect personal data during normal system operation, there is in most cases no personal data held by the developer that pertains to you. If you participated in the KydeStore developer program or interacted with any associated service that did collect information from you, you have the right to:</p>
-  <ul>
-    <li>Request access to any personal data held about you</li>
-    <li>Request correction of inaccurate data</li>
-    <li>Request deletion of your data at any time</li>
-  </ul>
-  <p>To exercise any of these rights, contact the developer via GitHub at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a>.</p>
-
-  <hr>
-
-  <h2>7. Children's Privacy</h2>
-  <p>KydeOS is not directed at children under the age of 13 and does not knowingly collect any personal data from minors. If you have reason to believe that a minor has submitted personal information through KydeStore or any associated service, please contact the developer via GitHub so that the information can be promptly removed.</p>
-
-  <hr>
-
-  <h2>8. Changes to This Policy</h2>
-  <p>This Privacy Policy may be updated as KydeOS evolves — as new features are introduced, new services are launched, or new legal requirements arise. All changes will be committed to the public GitHub repository with a clear and auditable diff, so the full history of this document is always publicly accessible.</p>
-  <p>The effective date at the top of this document will be updated to reflect the date of the most recent revision. Continued use of KydeOS following the publication of changes constitutes acceptance of the updated policy.</p>
-
-  <hr>
-
-  <h2>9. Contact</h2>
-  <p>For any privacy-related questions, concerns, or data requests, reach out through:</p>
-  <ul>
-    <li>GitHub: <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a> (open an issue or discussion)</li>
-  </ul>
-
-  <hr>
-
-  <p style="text-align: center; font-size: 14px; margin-top: 40px; opacity: 0.7;"><em>KydeOS Aurora &middot; GPLv3 &middot; This software is provided without warranty. Use at your own risk.</em></p>
+  <p style="text-align: center; font-size: 14px; margin-top: 40px; opacity: 0.7;"><em>KydeOS Aurora &middot; GPLv3 &middot; No warranty provided. Use at your own risk.</em></p>
 
   <footer style="margin-top: 48px; text-align: center; font-size: 13px; color: var(--onsv); letter-spacing: 0.2px; line-height: 1.6;">
     <p>© 2026 Acee All Rights Reserved.</p>
