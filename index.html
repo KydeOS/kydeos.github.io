@@ -247,6 +247,80 @@ body {
   transition:background 150ms var(--ease);
 }
 .btn-lic:hover { background:rgba(56,30,114,.4); }
+
+/* Sub-views plain text styling (Privacy, EULA, Licenses) */
+#view-privacy, #view-eula, #view-licenses {
+  padding-bottom: 80px;
+}
+#view-privacy .hero h1, #view-eula .hero h1, #view-licenses .hero h1 {
+  font-family: 'Outfit', 'Google Sans Flex', sans-serif;
+  font-size: clamp(36px, 8vw, 64px);
+  font-weight: 500;
+  color: var(--ons);
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+#view-privacy .hero p, #view-eula .hero p, #view-licenses .hero p {
+  font-size: 16px;
+  color: var(--onsv);
+  line-height: 1.65;
+}
+#view-privacy hr, #view-eula hr, #view-licenses hr {
+  border: none;
+  border-top: 1px solid var(--c4);
+  margin: 32px 0;
+}
+#view-privacy h2, #view-eula h2, #view-licenses h2 {
+  font-family: 'Outfit', 'Google Sans Flex', sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--ons);
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+#view-privacy h3, #view-eula h3, #view-licenses h3 {
+  font-family: 'Google Sans Flex', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ons);
+  margin-top: 32px;
+  margin-bottom: 12px;
+}
+#view-privacy p, #view-eula p, #view-licenses p {
+  font-size: 15px;
+  color: var(--onsv);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+#view-privacy ul, #view-eula ul, #view-licenses ul {
+  font-size: 15px;
+  color: var(--onsv);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  padding-left: 24px;
+}
+#view-privacy li, #view-eula li, #view-licenses li {
+  margin-bottom: 8px;
+  padding-left: 4px;
+}
+#view-privacy li::marker, #view-eula li::marker, #view-licenses li::marker {
+  color: var(--p);
+}
+#view-privacy a, #view-eula a, #view-licenses a {
+  color: var(--p);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(208, 188, 255, 0.3);
+  transition: all 150ms var(--ease);
+}
+#view-privacy a:hover, #view-eula a:hover, #view-licenses a:hover {
+  color: var(--opc);
+  border-bottom-color: var(--opc);
+}
+#view-privacy strong, #view-eula strong, #view-licenses strong {
+  color: var(--ons);
+  font-weight: 600;
+}
+
 @media (min-width:720px) {
   .page { padding:0 48px 80px; }
   .feat-grid-wrap { display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); }
