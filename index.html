@@ -8,22 +8,309 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root {
+  --p:#D0BCFF; --op:#381E72; --pc:#4F378B; --opc:#EADDFF;
+  --s:#CCC2DC; --os:#332D41; --sc:#4A4458; --osc:#E8DEF8;
+  --t:#EFB8C8; --ot:#492532; --tc:#633B48; --otc:#FFD8E4;
+  --e:#F2B8B5; --oe:#601410; --ec:#8C1D18; --oec:#F9DEDC;
+  --bg:#0F0E11;
+  --sf:#1C1B1F;
+  --c0:#0F0E11; --c1:#1C1B1F; --c2:#211F24; --c3:#2B292E; --c4:#363439;
+  --ons:#E6E1E5; --onsv:#CAC4D0;
+  --out:#938F99; --outv:#49454E;
+  --r-xl:28px; --r-xs:6px; --r-full:100px; --r-md:12px;
+  --gap:3px;
+  --ease:cubic-bezier(0.2,0,0,1);
+}
+html { scroll-behavior: smooth; }
+.ms { opacity: 0; }
+@font-face { font-family: "Material Symbols Rounded"; }
+body.fonts-loaded .ms { opacity: 1; }
+body {
+  font-family:'Google Sans Flex','Google Sans',sans-serif;
+  font-size:14px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  color:var(--ons);
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(79,55,139,.18) 0%, transparent 70%),
+    var(--bg);
+}
+.ms {
+  font-family:'Material Symbols Rounded';
+  font-style:normal; font-weight:normal; line-height:1;
+  display:inline-block; white-space:nowrap;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  user-select:none;
+  font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48;
+  flex-shrink:0;
+}
+.ms.f{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48}
+.ms.s16{font-size:16px} .ms.s20{font-size:20px} .ms.s24{font-size:24px}
+.bar {
+  position:sticky; top:0; z-index:100;
+  display:flex; align-items:center;
+  padding:0 8px 0 20px; height:64px;
+  background:rgba(28,27,31,.85);
+  backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 var(--outv);
+}
+.bar-title {
+  display:flex; align-items:center;
+  font-family:'Outfit','Google Sans Flex',sans-serif;
+  font-size:22px; font-weight:500;
+  color:var(--ons); flex:1;
+}
+.k-logo {
+  position:relative; width:24.2px; height:24.2px; margin-right:10px;
+  display:flex; flex-shrink:0;
+}
+.k-logo-tl {
+  position:absolute; top:0; left:0; width:12px; height:12px;
+  border:1.5px solid var(--ons); border-radius:100% 3px 3px 3px;
+  box-sizing:border-box;
+}
+.k-logo-br {
+  position:absolute; top:12.2px; left:12.2px; width:12px; height:12px;
+  background:var(--ons); border-radius:3px 3px 100% 3px;
+}
+.bar-btn {
+  width:48px; height:48px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--onsv); text-decoration:none;
+  transition:background 150ms var(--ease);
+}
+.bar-btn:hover{background:rgba(230,225,229,.08)}
+.page { width:100%; max-width:1024px; margin:0 auto; padding:0 24px 80px; }
+.hero { padding:48px 0 40px; }
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--sc); color:var(--osc);
+  font-size:11px; font-weight:500; letter-spacing:.5px;
+  padding:6px 14px 6px 10px;
+  border-radius:var(--r-full);
+  margin-bottom:24px;
+}
+.hero-display {
+  font-family:'Outfit','Google Sans Flex',sans-serif;
+  font-size:clamp(50px, 12vw, 104px);
+  font-weight:500;
+  line-height:1;
+  letter-spacing:0px;
+  color:var(--ons);
+  margin-bottom:16px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  white-space:nowrap;
+}
+.hero-display-accent { color:var(--p); }
+.hero-body {
+  font-size:16px; color:var(--onsv);
+  max-width:600px; line-height:1.65;
+  margin-bottom:32px;
+}
+.btn-row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.btn-group { display:inline-flex; gap:var(--gap); }
+.btn-gi {
+  display:inline-flex; align-items:center; gap:8px;
+  height:40px; padding:0 20px;
+  font-family:'Google Sans Flex',sans-serif;
+  font-size:14px; font-weight:500; letter-spacing:.1px;
+  text-decoration:none; border:none; cursor:pointer;
+  transition:background 150ms var(--ease), filter 150ms var(--ease);
+}
+.btn-gi:first-child:not(:last-child) { border-radius:var(--r-full) var(--r-xs) var(--r-xs) var(--r-full); }
+.btn-gi:last-child:not(:first-child)  { border-radius:var(--r-xs) var(--r-full) var(--r-full) var(--r-xs); }
+.btn-gi:only-child                    { border-radius:var(--r-full); }
+.btn-filled { background:var(--p); color:var(--op); }
+.btn-filled:hover { filter:brightness(1.08); }
+.btn-filled[disabled] {
+  background:rgba(230,225,229,.12);
+  color:rgba(230,225,229,.38);
+  cursor:not-allowed; pointer-events:none;
+}
+.btn-tonal { background:var(--sc); color:var(--osc); }
+.btn-tonal:hover { background:#564F6B; }
+.btn-outlined {
+  display:inline-flex; align-items:center; gap:8px;
+  height:40px; padding:0 24px;
+  border-radius:var(--r-full);
+  border:1px solid var(--out);
+  background:transparent; color:var(--p);
+  font-family:'Google Sans Flex',sans-serif;
+  font-size:14px; font-weight:500; letter-spacing:.1px;
+  text-decoration:none; cursor:pointer;
+  transition:background 150ms var(--ease);
+}
+.btn-outlined:hover { background:rgba(208,188,255,.08); }
+.sec-label {
+  display:flex; align-items:center; gap:8px;
+  font-size:11px; font-weight:600;
+  letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--onsv);
+  margin:36px 0 8px;
+  scroll-margin-top:80px;
+}
+.sec-label::after { content:''; flex:1; height:1px; background:var(--outv); }
+.group { display:flex; flex-direction:column; gap:var(--gap); }
+.group .card:only-child                         { border-radius:var(--r-xl); }
+.group .card:first-child:not(:only-child)       { border-radius:var(--r-xl) var(--r-xl) var(--r-xs) var(--r-xs); }
+.group .card:last-child:not(:only-child)        { border-radius:var(--r-xs) var(--r-xs) var(--r-xl) var(--r-xl); }
+.group .card:not(:first-child):not(:last-child) { border-radius:var(--r-xs); }
+.card { outline: none; }
+.card[tabindex="0"] { cursor: pointer; transition: transform 200ms var(--ease), filter 200ms ease; }
+.card[tabindex="0"]:active { transform: scale(0.98); }
+.card[tabindex="0"]:hover { filter: brightness(1.15); }
+.warn { background:rgba(242,184,181,0.08); padding:0 24px; border-radius:var(--r-xl); border:1px solid rgba(242,184,181,0.15); }
+.warn-rows { display:flex; flex-direction:column; }
+.warn-row {
+  display:flex; align-items:flex-start; gap:20px;
+  padding:24px 0; border-bottom:1px solid rgba(242,184,181,.1);
+}
+.warn-row:last-child { border-bottom:none; }
+.warn-row-ico {
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(242,184,181,.15);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--e); flex-shrink:0;
+  margin-top:2px;
+}
+.warn-t { font-size:18px; font-weight:600; color:var(--e); margin-bottom:4px; font-family:'Google Sans Flex','Google Sans',sans-serif; }
+.warn-d { font-size:15px; color:rgba(242,184,181,.85); line-height:1.5; font-weight:400; }
+.feat {
+  display:flex; align-items:flex-start; gap:16px;
+  background:var(--c2); padding:18px;
+  transition:background 150ms var(--ease);
+  cursor:default;
+}
+.feat:hover { background:var(--c3); }
+.feat-ico {
+  width:48px; height:48px; flex-shrink:0;
+  border-radius:var(--r-md);
+  display:flex; align-items:center; justify-content:center;
+}
+.ip{background:var(--pc);color:var(--opc)}
+.is{background:var(--pc);color:var(--opc)}
+.it{background:var(--pc);color:var(--opc)}
+.feat-name {
+  font-family:'Google Sans Flex','Google Sans',sans-serif;
+  font-size:15px; font-weight:600; color:var(--ons); margin-bottom:3px;
+}
+.feat-desc { font-size:13px; color:var(--onsv); line-height:1.55; }
+.row-card {
+  display:flex; align-items:center; gap:14px;
+  background:var(--c2); padding:13px 16px;
+  transition:background 150ms var(--ease);
+  cursor:default;
+}
+.row-card:hover { background:var(--c3); }
+.row-ico {
+  width:40px; height:40px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.row-lbl { flex:1; font-size:14px; font-weight:500; color:var(--ons); }
+.row-card.done .row-lbl { color:var(--onsv); }
+.row-tag {
+  font-size:11px; font-weight:600; letter-spacing:.4px;
+  padding:4px 10px; border-radius:var(--r-full); white-space:nowrap;
+}
+.t-done { background:var(--pc); color:var(--opc); }
+.t-wip  { background:var(--tc); color:var(--otc); }
+.t-plan { background:var(--c4); color:var(--onsv); }
+.t-val  { background:var(--c3); color:var(--onsv); font-family:'Google Sans Flex',sans-serif; }
+.lic {
+  display:flex; align-items:center; gap:16px;
+  background:var(--pc); border-radius:var(--r-xl); padding:20px;
+}
+.lic-ico {
+  width:52px; height:52px; border-radius:50%;
+  background:rgba(234,221,255,.15); color:var(--opc);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.lic-name {
+  font-family:'Google Sans Flex','Google Sans',sans-serif;
+  font-size:15px; font-weight:600; color:var(--opc); margin-bottom:3px;
+}
+.lic-sub { font-size:12px; color:rgba(234,221,255,.7); flex:1; }
+.btn-lic {
+  display:inline-flex; align-items:center; gap:6px;
+  background:rgba(56,30,114,.25); color:var(--opc);
+  height:36px; padding:0 16px; border-radius:var(--r-full);
+  font-family:'Google Sans Flex',sans-serif; font-size:13px; font-weight:500;
+  text-decoration:none; flex-shrink:0;
+  transition:background 150ms var(--ease);
+}
+.btn-lic:hover { background:rgba(56,30,114,.4); }
+@media (min-width:720px) {
+  .page { padding:0 48px 80px; }
+  .feat-grid-wrap { display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); }
+  .feat-grid-wrap .card { border-radius:var(--r-xs) !important; }
+  .feat-grid-wrap .card:nth-child(1) { border-radius:var(--r-xl) var(--r-xs) var(--r-xs) var(--r-xs) !important; }
+  .feat-grid-wrap .card:nth-child(2) { border-radius:var(--r-xs) var(--r-xl) var(--r-xs) var(--r-xs) !important; }
+  .feat-grid-wrap .card:last-child {
+    grid-column:1/-1;
+    border-radius:var(--r-xs) var(--r-xs) var(--r-xl) var(--r-xl) !important;
+  }
+  .req-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); }
+  .req-grid .card { border-radius:var(--r-xs) !important; }
+  .req-grid .card:nth-child(1) { border-radius:var(--r-xl) var(--r-xs) var(--r-xs) var(--r-xs) !important; }
+  .req-grid .card:nth-child(2) { border-radius:var(--r-xs) var(--r-xl) var(--r-xs) var(--r-xs) !important; }
+  .req-grid .card:nth-last-child(2) { border-radius:var(--r-xs) var(--r-xs) var(--r-xs) var(--r-xl) !important; }
+  .req-grid .card:nth-last-child(1) { border-radius:var(--r-xs) var(--r-xs) var(--r-xl) var(--r-xs) !important; }
+}
+@media (min-width:1024px) {
+  .page { padding:0 80px 80px; }
+  .feat-grid-wrap { grid-template-columns:1fr 1fr 1fr; }
+  .feat-grid-wrap .card:nth-child(1) { border-radius:var(--r-xl) var(--r-xs) var(--r-xs) var(--r-xl) !important; }
+  .feat-grid-wrap .card:nth-child(2) { border-radius:var(--r-xs) !important; }
+  .feat-grid-wrap .card:last-child {
+    grid-column:auto;
+    border-radius:var(--r-xs) var(--r-xl) var(--r-xl) var(--r-xs) !important;
+  }
+  .req-grid { grid-template-columns:1fr 1fr 1fr; }
+  .req-grid .card:nth-child(1) { border-radius:var(--r-xl) var(--r-xs) var(--r-xs) var(--r-xs) !important; }
+  .req-grid .card:nth-child(2) { border-radius:var(--r-xs) !important; }
+  .req-grid .card:nth-child(3) { border-radius:var(--r-xs) var(--r-xl) var(--r-xs) var(--r-xs) !important; }
+  .req-grid .card:nth-last-child(3) { border-radius:var(--r-xs) var(--r-xs) var(--r-xs) var(--r-xl) !important; }
+  .req-grid .card:nth-last-child(2) { border-radius:var(--r-xs) !important; }
+  .req-grid .card:nth-last-child(1) { border-radius:var(--r-xs) var(--r-xs) var(--r-xl) var(--r-xs) !important; }
+  .warn-rows { flex-direction:row; gap:24px; padding:32px 0; }
+  .warn-row { flex:1; padding:0; border-bottom:none; border-right:1px solid rgba(242,184,181,.1); padding-right:24px; flex-direction:column; gap:16px; }
+  .warn-row:last-child { border-right:none; padding-right:0; }
+  .warn-t { font-size:16px; }
+}
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(12px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.hero    { animation:fadeUp 400ms var(--ease) both; }
+.group   { animation:fadeUp 350ms var(--ease) both; }
+.lic     { animation:fadeUp 350ms var(--ease) both; }
+</style>
 </head>
 <body>
 <header class="bar">
-  <div class="bar-title">
+  <a class="bar-title" href="#home" style="text-decoration:none; cursor:pointer;">
     <div class="k-logo">
       <div class="k-logo-tl"></div>
       <div class="k-logo-br"></div>
     </div>
     KydeOS
-  </div>
+  </a>
   <a class="bar-btn" href="https://github.com/r1nzd/KydeOS" target="_blank" aria-label="GitHub">
     <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
   </a>
 </header>
-<main class="page">
+<main class="page" id="main-content">
+
+  <div id="view-home">
+    
   <section class="hero">
     <div class="hero-eyebrow">
       <span class="ms f s16" aria-hidden="true">science</span>
@@ -221,11 +508,405 @@
     <p>© 2026 Acee All Rights Reserved.</p>
     <p style="margin-top: 4px; opacity: 0.8;">Any trademarks or logos used on this site are property of their respective owners.</p>
     <p style="margin-top: 12px; display: flex; justify-content: center; gap: 16px;">
-      <a href="privacy.html" style="color:var(--ons);text-decoration:underline;">Privacy Policy</a>
-      <a href="eula.html" style="color:var(--ons);text-decoration:underline;">EULA</a>
-      <a href="licenses.html" style="color:var(--ons);text-decoration:underline;">Licenses</a>
+      <a href="#privacy" style="color:var(--ons);text-decoration:underline;">Privacy Policy</a>
+      <a href="#eula" style="color:var(--ons);text-decoration:underline;">EULA</a>
+      <a href="#licenses" style="color:var(--ons);text-decoration:underline;">Licenses</a>
     </p>
   </footer>
+
+  </div>
+  <div id="view-privacy" style="display: none;">
+    
+  <div class="hero">
+    <h1>Privacy Policy</h1>
+    <p><strong>Effective date:</strong> June 20, 2026<br>
+    <strong>Version:</strong> Aurora (1.0)<br>
+    <strong>License:</strong> GNU General Public License v3.0 (GPLv3)<br>
+    <strong>Source code:</strong> <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></p>
+  </div>
+  
+  <hr>
+
+    <h2>1. Overview</h2>
+  <p>KydeOS is a free, open-source operating system designed and maintained by a single independent developer. This Privacy Policy explains what data KydeOS may collect, how it is used, and what control you have over it.</p>
+  <p>Privacy in KydeOS is opt-in by design. During the initial setup process (OOBE), you are presented with a Privacy & Diagnostics screen where you can individually enable or disable each data collection feature before the system is fully active. Every toggle defaults to off, with the exception of Crash Reports which defaults to on to help identify critical bugs during early development. You can change any of these settings at any time after setup via System Settings.</p>
+  <p>KydeOS has no advertising business model, no investors requiring growth metrics, and no commercial interest in your data. This project exists as a personal, open-source endeavor.</p>
+
+  <hr>
+  
+  <h2>2. Privacy & Diagnostics Settings</h2>
+  <p>During setup, you are given direct control over the following three settings. None of these features transmit any data without your knowledge.</p>
+
+  <h3>2.1 Location Services</h3>
+  <p><strong>Default state:</strong> OFF</p>
+  <p>When enabled, Location Services allows KydeOS and supported applications to access an estimated location derived from your network or hardware. This is used to assist apps that benefit from location context, such as weather, maps, and automatic time zone detection.</p>
+  <p>When disabled, no location data of any kind is collected, accessed, or transmitted by the system. Individual applications you install may have their own location permission requests, which are handled separately and are not governed by this system-level toggle.</p>
+  <p>You can change this setting at any time in System Settings.</p>
+
+  <h3>2.2 Telemetry & Usage Data</h3>
+  <p><strong>Default state:</strong> OFF</p>
+  <p>When enabled, KydeOS may collect anonymous, aggregated data about how the system is used. This may include general information such as which system features are accessed, session durations, or performance metrics. The purpose of this data is strictly to understand how KydeOS is used in practice and to guide future development decisions.</p>
+  <p>This data is:</p>
+  <ul>
+    <li>Anonymous — it is not linked to your identity, account, or any personally identifiable information</li>
+    <li>Aggregated — individual sessions are not stored or analyzed in isolation</li>
+    <li>Never sold or shared with any third party</li>
+    <li>Never used for advertising purposes of any kind</li>
+  </ul>
+  <p>When disabled, no usage data or telemetry of any kind is collected or transmitted by the system.</p>
+  <p>You can change this setting at any time in System Settings.</p>
+
+  <h3>2.3 Crash Reports</h3>
+  <p><strong>Default state:</strong> ON</p>
+  <p>When enabled, KydeOS automatically collects and transmits error logs when the system or a core system component crashes. These reports contain technical diagnostic information such as stack traces, system state at the time of the crash, kernel version, and hardware architecture. Crash reports help the developer identify and fix critical bugs, especially during the early Aurora development phase.</p>
+  <p>Crash reports do not contain:</p>
+  <ul>
+    <li>Your name, email address, or any account information</li>
+    <li>The contents of your files, documents, or clipboard</li>
+    <li>Your browsing history or application usage</li>
+    <li>Any personally identifiable information</li>
+  </ul>
+  <p>When disabled, no crash or error data is ever transmitted from your device.</p>
+  <p>You can change this setting at any time in System Settings.</p>
+
+  <hr>
+
+  <h2>3. Data We Never Collect</h2>
+  <p>Regardless of your Privacy & Diagnostics settings, KydeOS never collects the following under any circumstances:</p>
+  <ul>
+    <li>Names, email addresses, or personally identifiable information during normal OS operation</li>
+    <li>The contents of your files, documents, photos, or any stored data</li>
+    <li>Keyboard input or clipboard contents</li>
+    <li>Browsing history or Krowser activity</li>
+    <li>Hardware serial numbers or unique device identifiers used for tracking</li>
+    <li>Location data when Location Services is disabled</li>
+    <li>Any data sold to or shared with advertisers, data brokers, or commercial third parties</li>
+  </ul>
+
+  <hr>
+
+  <h2>4. Krowser</h2>
+  <p>Krowser is the first-party browser bundled with KydeOS. When you browse the web, Krowser connects to the websites you visit — those websites operate under their own privacy policies. Krowser does not report your browsing history, visited URLs, or search queries back to the KydeOS developer in any form, regardless of your Privacy & Diagnostics settings.</p>
+
+  <hr>
+
+  <h2>5. KydeStore & Developer Program</h2>
+  <p>KydeStore is the native software center in KydeOS. An alpha developer program is available, allowing early community members to register as testers directly inside KydeStore. If you register, the information you voluntarily submit is used solely for managing the program and is never shared with third parties.</p>
+
+  <hr>
+
+  <h2>6. Third-Party Applications</h2>
+  <p>Applications installed via .deb, Flatpak, or AppImage are independent software with their own developers and privacy practices. KydeOS has no control over or responsibility for the data practices of third-party applications. Consult each application's privacy policy individually.</p>
+
+  <hr>
+
+  <h2>7. System Update Checks</h2>
+  <p>When KydeOS checks for available updates, a standard network request is made to the update server. Your IP address is exposed to that server as an unavoidable consequence of internet networking. No additional data is transmitted alongside this request.</p>
+
+  <hr>
+
+  <h2>8. Open Source as a Privacy Guarantee</h2>
+  <p>KydeOS is fully open source under the GPLv3. Every component of the system is publicly auditable at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a>. You are never required to take our word for anything stated in this policy — you can verify it directly in the source code. If you discover any undisclosed data collection or network transmission in KydeOS, please report it immediately as a privacy issue on GitHub.</p>
+
+  <hr>
+
+  <h2>9. Security</h2>
+  <p>KydeOS includes the following system-level security features:</p>
+  <ul>
+    <li>LUKS2 full-disk encryption to protect data stored on your device at rest</li>
+    <li>AppArmor and SELinux sandboxing to isolate applications</li>
+    <li>Minimal default service configuration to reduce attack surface</li>
+    <li>Security patches from Debian Stable upstream, with critical fixes applied out-of-cycle when necessary</li>
+  </ul>
+
+  <hr>
+
+  <h2>10. Your Rights</h2>
+  <p>If you participated in the KydeStore developer program or any associated service, you have the right to request access to, correction of, or deletion of any personal data held about you. Contact the developer via GitHub at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a>.</p>
+
+  <hr>
+
+  <h2>11. Children's Privacy</h2>
+  <p>KydeOS does not knowingly collect personal data from children under the age of 13. If you believe a minor has submitted personal information through KydeStore or any associated service, contact the developer via GitHub so it can be promptly removed.</p>
+
+  <hr>
+
+  <h2>12. Changes to This Policy</h2>
+  <p>All changes to this policy will be committed to the public GitHub repository with a full auditable history. The effective date at the top of this document will be updated with each revision. Continued use of KydeOS after changes are published constitutes acceptance of the updated policy.</p>
+
+  <hr>
+
+  <h2>13. Contact</h2>
+  <p>For privacy-related questions, concerns, or data requests:</p>
+  <ul>
+    <li>GitHub: <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></li>
+  </ul>
+
+  <hr>
+
+  <p style="text-align: center; font-size: 14px; margin-top: 40px; opacity: 0.7;"><em>KydeOS Aurora &middot; GPLv3 &middot; No warranty provided. Use at your own risk.</em></p>
+
+  
+
+  </div>
+  <div id="view-eula" style="display: none;">
+    
+  <div class="hero">
+    <h1>End User License Agreement (EULA)</h1>
+    <p><strong>Effective date:</strong> June 20, 2026<br>
+    <strong>Version:</strong> Aurora (1.0)<br>
+    <strong>License:</strong> GNU General Public License v3.0 (GPLv3)<br>
+    <strong>Source code:</strong> <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></p>
+  </div>
+  
+  <hr>
+
+  <h2>1. Agreement to Terms</h2>
+  <p>By downloading, installing, or using KydeOS in any form, you agree to be bound by this End User License Agreement. If you do not agree to these terms, do not install or use KydeOS.</p>
+
+  <hr>
+
+  <h2>2. About KydeOS</h2>
+  <p>KydeOS is a personal, experimental, open-source operating system built on top of Debian Stable and distributed free of charge. It is designed and maintained by a single independent developer. KydeOS is not a commercial product. It is provided to the public in the spirit of open-source collaboration, with no warranties or guarantees of any kind.</p>
+
+  <hr>
+
+  <h2>3. License Grant</h2>
+  <p>KydeOS is licensed under the GNU General Public License v3.0 (GPLv3). Under this license, you are granted the following rights:</p>
+  <ul>
+    <li><strong>Run:</strong> You may run KydeOS for any purpose, on any number of machines.</li>
+    <li><strong>Study:</strong> You may examine the source code to understand how the system works.</li>
+    <li><strong>Modify:</strong> You may modify KydeOS for personal use or for distribution.</li>
+    <li><strong>Distribute:</strong> You may distribute verbatim or modified copies of KydeOS, provided you do so under the same GPLv3 license and make the source code available to recipients.</li>
+  </ul>
+  <p>These rights are perpetual, worldwide, royalty-free, and irrevocable as long as you comply with the terms of the GPLv3. The full text of the GPLv3 is included in the LICENSE file distributed with KydeOS and is available at <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">https://www.gnu.org/licenses/gpl-3.0.html</a>.</p>
+
+  <hr>
+
+  <h2>4. Restrictions</h2>
+  <p>While the GPLv3 grants broad freedoms, the following restrictions apply:</p>
+  <ul>
+    <li>You may not distribute modified versions of KydeOS under a different or more restrictive license.</li>
+    <li>You may not distribute KydeOS or any derivative work without making the corresponding source code available to recipients under the same GPLv3 terms.</li>
+    <li>You may not use the KydeOS name, logo, or branding in a way that implies official endorsement of a product or service not affiliated with this project.</li>
+    <li>You may not misrepresent the origin of KydeOS or claim that you authored the original work.</li>
+  </ul>
+
+  <hr>
+
+  <h2>5. Disclaimer of Warranty</h2>
+  <p>KydeOS IS PROVIDED STRICTLY "AS IS", WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, THE DEVELOPER EXPRESSLY DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT LIMITED TO:</p>
+  <ul>
+    <li>IMPLIED WARRANTIES OF MERCHANTABILITY</li>
+    <li>FITNESS FOR A PARTICULAR PURPOSE</li>
+    <li>NON-INFRINGEMENT</li>
+    <li>SYSTEM STABILITY OR RELIABILITY</li>
+    <li>ACCURACY OR COMPLETENESS OF ANY INCLUDED SOFTWARE OR DOCUMENTATION</li>
+  </ul>
+  <p>YOU ASSUME ALL RISK ARISING FROM YOUR USE OR INABILITY TO USE KYDEOS. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE SYSTEM RESTS WITH YOU.</p>
+
+  <hr>
+
+  <h2>6. Limitation of Liability</h2>
+  <p>TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL THE DEVELOPER BE LIABLE FOR ANY DAMAGES WHATSOEVER ARISING OUT OF OR IN CONNECTION WITH THE USE OR INABILITY TO USE KYDEOS, INCLUDING BUT NOT LIMITED TO:</p>
+  <ul>
+    <li>Loss of data, files, or storage contents</li>
+    <li>System damage or hardware failure</li>
+    <li>Boot failures or unrecoverable system states</li>
+    <li>Loss of productivity or business interruption</li>
+    <li>Any indirect, incidental, special, consequential, or punitive damages</li>
+  </ul>
+  <p>THIS LIMITATION APPLIES EVEN IF THE DEVELOPER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, AND EVEN IF ANY REMEDY FAILS OF ITS ESSENTIAL PURPOSE.</p>
+
+  <hr>
+
+  <h2>7. Experimental Status &amp; Known Risks</h2>
+  <p>KydeOS Aurora (1.0) is an early-stage, experimental build. By using this software, you explicitly acknowledge and accept the following known risks:</p>
+  <ul>
+    <li>The system may fail to boot on certain hardware configurations.</li>
+    <li>Installation to physical hardware may result in data loss, including total loss of existing operating system data and personal files.</li>
+    <li>System components may crash, hang, or behave unpredictably.</li>
+    <li>Features described in documentation may be incomplete, non-functional, or subject to removal without notice.</li>
+    <li>Updates between versions may introduce breaking changes to system configuration, installed applications, or user data.</li>
+  </ul>
+  <p>You are strongly advised to evaluate KydeOS exclusively within a virtualized environment such as QEMU or VirtualBox before any attempt at physical hardware installation.</p>
+
+  <hr>
+
+  <h2>8. Third-Party Software</h2>
+  <p>KydeOS may include or interact with third-party software components, libraries, and applications, each governed by their own respective licenses. The inclusion of third-party software in KydeOS does not constitute an endorsement of those components by the KydeOS developer. You are responsible for reviewing and complying with the license terms of any third-party software you install or use in conjunction with KydeOS.</p>
+  <p>Third-party applications installed via .deb, Flatpak, or AppImage are entirely independent of this agreement and are subject to their own EULAs and terms of service.</p>
+
+  <hr>
+
+  <h2>9. KydeStore &amp; Developer Program</h2>
+  <p>KydeStore is the native software center included in KydeOS. Participation in the KydeStore alpha developer program is voluntary. By registering for the developer program, you agree to any additional terms presented during the registration process within KydeStore. The developer reserves the right to revoke program access at any time and for any reason.</p>
+  <p>Software distributed through KydeStore may be subject to its own individual license terms separate from this agreement.</p>
+
+  <hr>
+
+  <h2>10. Privacy</h2>
+  <p>Your use of KydeOS is also governed by the KydeOS Privacy Policy, which describes what data the system may collect and how it is handled. The Privacy Policy is incorporated into this agreement by reference. By using KydeOS, you also agree to the terms of the Privacy Policy.</p>
+
+  <hr>
+
+  <h2>11. Modifications to This Agreement</h2>
+  <p>This EULA may be updated as KydeOS develops. All changes will be committed to the public GitHub repository at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a> with a full auditable history. The effective date at the top of this document will be updated with each revision. Continued use of KydeOS following the publication of changes constitutes your acceptance of the revised terms.</p>
+
+  <hr>
+
+  <h2>12. Governing Law</h2>
+  <p>This agreement is provided in good faith by an independent solo developer. As KydeOS is distributed internationally and free of charge, no specific jurisdiction is imposed. In the event of any dispute, the parties agree to attempt resolution in good faith before pursuing any formal legal remedy.</p>
+
+  <hr>
+
+  <h2>13. Entire Agreement</h2>
+  <p>This EULA, together with the KydeOS Privacy Policy and the GNU General Public License v3.0, constitutes the entire agreement between you and the KydeOS developer with respect to your use of KydeOS. It supersedes all prior communications, representations, or agreements relating to the subject matter herein.</p>
+
+  <hr>
+
+  <h2>14. Contact</h2>
+  <p>For questions regarding this agreement:</p>
+  <ul>
+    <li>GitHub: <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></li>
+  </ul>
+
+  <hr>
+
+  <p style="text-align: center; font-size: 14px; margin-top: 40px; opacity: 0.7;"><em>KydeOS Aurora &middot; GPLv3 &middot; No warranty provided. Use at your own risk.</em></p>
+
+  
+
+  </div>
+  <div id="view-licenses" style="display: none;">
+    
+  <div class="hero">
+    <h1>Open Source Licenses</h1>
+    <p><strong>Version:</strong> Aurora (1.0)<br>
+    <strong>Source code:</strong> <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></p>
+  </div>
+  
+  <hr>
+
+  <h2>1. KydeOS Primary License</h2>
+  <p>KydeOS is licensed under the GNU General Public License v3.0 (GPLv3).</p>
+  <p>Copyright (C) 2026 r1nzd</p>
+  <p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
+  <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
+  <p>You should have received a copy of the GNU General Public License along with this program. If not, see <a href="https://www.gnu.org/licenses/" target="_blank">https://www.gnu.org/licenses/</a>.</p>
+
+  <hr>
+
+  <h2>2. What GPLv3 Means for You</h2>
+  <p><strong>You are free to:</strong></p>
+  <ul>
+    <li>Run KydeOS for any purpose, on any machine, without restriction.</li>
+    <li>Study the source code and learn how the system works.</li>
+    <li>Modify KydeOS to suit your own needs.</li>
+    <li>Distribute verbatim copies of KydeOS to anyone.</li>
+    <li>Distribute your modified versions of KydeOS to anyone.</li>
+  </ul>
+  <p><strong>Under the following conditions:</strong></p>
+  <ul>
+    <li>Any modified version you distribute must also be licensed under GPLv3.</li>
+    <li>You must make the corresponding source code available to anyone who receives your distribution.</li>
+    <li>You must include a copy of the GPLv3 license with any distribution.</li>
+    <li>You must clearly mark any modified files as changed, including a relevant date.</li>
+    <li>You may not impose additional restrictions on the rights granted by this license.</li>
+  </ul>
+
+  <hr>
+
+  <h2>3. Third-Party Components &amp; Dependencies</h2>
+  <p>KydeOS is built on top of Debian Bookworm Stable and incorporates a number of third-party open-source components. Each component is governed by its own respective license. The inclusion of these components in KydeOS does not alter their original license terms.</p>
+  
+  <p><strong>Debian GNU/Linux</strong><br>
+  License: Various (per-package). The Debian distribution as a whole is a collection of software packages each carrying their own license. See <a href="https://www.debian.org/legal/" target="_blank">https://www.debian.org/legal/</a> for details.</p>
+  
+  <p><strong>Linux Kernel</strong><br>
+  License: GNU General Public License v2.0 with the Linux syscall note exception.<br>
+  The Linux kernel is not relicensed under GPLv3 by its inclusion in KydeOS. User-space components of KydeOS interact with the kernel through the standard syscall interface, which does not create a derivative work relationship under the kernel's license terms.<br>
+  See <a href="https://www.kernel.org/legal.html" target="_blank">https://www.kernel.org/legal.html</a> for details.</p>
+  
+  <p><strong>systemd</strong><br>
+  License: GNU Lesser General Public License v2.1 (LGPLv2.1) for the core libraries; GNU General Public License v2.0 for certain utilities.<br>
+  See <a href="https://github.com/systemd/systemd/blob/main/LICENSE.md" target="_blank">https://github.com/systemd/systemd/blob/main/LICENSE.md</a> for details.</p>
+
+  <p><strong>Wayland &amp; XWayland</strong><br>
+  License: MIT License.<br>
+  Wayland is a display server protocol and its reference implementation is distributed under the MIT License.<br>
+  See <a href="https://wayland.freedesktop.org/" target="_blank">https://wayland.freedesktop.org/</a> for details.</p>
+
+  <p><strong>Material Symbols (Icons)</strong><br>
+  License: Apache License 2.0.<br>
+  Material Symbols are provided by Google and used under the Apache 2.0 License.<br>
+  See <a href="https://github.com/google/material-design-icons/blob/master/LICENSE" target="_blank">https://github.com/google/material-design-icons/blob/master/LICENSE</a> for details.</p>
+
+  <p><strong>Google Sans Flex &amp; Google Sans Text (Fonts)</strong><br>
+  License: These fonts are provided by Google via Google Fonts. Usage is subject to the applicable font license terms as specified by Google.<br>
+  See <a href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a> for details.</p>
+
+  <p><strong>Flatpak</strong><br>
+  License: GNU Lesser General Public License v2.1 (LGPLv2.1).<br>
+  See <a href="https://github.com/flatpak/flatpak/blob/main/COPYING" target="_blank">https://github.com/flatpak/flatpak/blob/main/COPYING</a> for details.</p>
+
+  <p><strong>AppImage</strong><br>
+  License: MIT License.<br>
+  See <a href="https://github.com/AppImage/AppImageKit/blob/master/LICENSE" target="_blank">https://github.com/AppImage/AppImageKit/blob/master/LICENSE</a> for details.</p>
+
+  <p><strong>QEMU (used in development and testing)</strong><br>
+  License: GNU General Public License v2.0, with components under MIT and BSD licenses.<br>
+  QEMU is used exclusively as a development and testing tool and is not distributed as part of KydeOS.<br>
+  See <a href="https://www.qemu.org/license/" target="_blank">https://www.qemu.org/license/</a> for details.</p>
+
+  <hr>
+
+  <h2>4. KydeShell</h2>
+  <p>KydeShell is the custom desktop shell developed specifically for KydeOS, written in Rust. KydeShell is an original work and is licensed under the GNU General Public License v3.0 as part of the KydeOS project.</p>
+  <p>Copyright (C) 2026 r1nzd</p>
+
+  <hr>
+
+  <h2>5. Krowser</h2>
+  <p>Krowser is the first-party browser developed by the KydeOS developer and bundled with KydeOS. Krowser is an original work and is licensed under the GNU General Public License v3.0 as part of the KydeOS project.</p>
+  <p>Copyright (C) 2026 r1nzd</p>
+
+  <hr>
+
+  <h2>6. KydeStore</h2>
+  <p>KydeStore is the native software center developed for KydeOS. KydeStore is an original work and is licensed under the GNU General Public License v3.0 as part of the KydeOS project.</p>
+  <p>Copyright (C) 2026 r1nzd</p>
+  <p>Software distributed through KydeStore is provided by independent developers and carries its own respective license terms. KydeOS takes no responsibility for the licensing compliance of third-party software distributed via KydeStore.</p>
+
+  <hr>
+
+  <h2>7. Rust Standard Library &amp; Toolchain</h2>
+  <p>KydeShell is written in Rust. The Rust standard library is dual-licensed under the MIT License and the Apache License 2.0. The Rust compiler and toolchain are used exclusively during development and are not distributed as part of KydeOS.<br>
+  See <a href="https://github.com/rust-lang/rust/blob/master/LICENSE-MIT" target="_blank">https://github.com/rust-lang/rust/blob/master/LICENSE-MIT</a> and <a href="https://github.com/rust-lang/rust/blob/master/LICENSE-APACHE" target="_blank">https://github.com/rust-lang/rust/blob/master/LICENSE-APACHE</a> for details.</p>
+
+  <hr>
+
+  <h2>8. No Endorsement</h2>
+  <p>The inclusion of any third-party component, library, or tool in KydeOS does not imply endorsement by or affiliation with the authors or maintainers of those projects. All trademarks referenced herein are the property of their respective owners.</p>
+
+  <hr>
+
+  <h2>9. Reporting License Issues</h2>
+  <p>If you believe any component of KydeOS is being used in violation of its applicable license, please report it via GitHub at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a> so the issue can be investigated and resolved promptly.</p>
+
+  <hr>
+
+  <h2>10. Full License Text</h2>
+  <p>The full text of the GNU General Public License v3.0 is included in the LICENSE file at the root of the KydeOS repository and is available online at <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">https://www.gnu.org/licenses/gpl-3.0.html</a>.</p>
+
+  <hr>
+
+  <p style="text-align: center; font-size: 14px; margin-top: 40px; opacity: 0.7;"><em>KydeOS Aurora &middot; GPLv3 &middot; Copyright (C) 2026 r1nzd</em></p>
+
+  
+
+  </div>
+
 </main>
 <script>
 document.fonts.ready.then(() => document.body.classList.add("fonts-loaded"));
@@ -314,6 +995,20 @@ function showInfo(title, desc, icon, iconBg, iconColor) {
   ic.querySelector('.ms').textContent = icon;
   m.showModal();
 }
+
+function updateView() {
+  const views = ['home', 'privacy', 'eula', 'licenses'];
+  let current = window.location.hash.replace('#', '');
+  if (!views.includes(current)) current = 'home';
+  
+  views.forEach(v => {
+    document.getElementById('view-' + v).style.display = (v === current) ? 'block' : 'none';
+  });
+  window.scrollTo(0, 0);
+}
+window.addEventListener('hashchange', updateView);
+document.addEventListener('DOMContentLoaded', updateView);
+
 </script>
 </body>
 </html>
