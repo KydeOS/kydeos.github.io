@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KydeOS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  --p:#D0BCFF; --op:#381E72; --pc:#4F378B; --opc:#EADDFF;
+  --s:#CCC2DC; --os:#332D41; --sc:#4A4458; --osc:#E8DEF8;
+  --t:#EFB8C8; --ot:#492532; --tc:#633B48; --otc:#FFD8E4;
+  --e:#F2B8B5; --oe:#601410; --ec:#8C1D18; --oec:#F9DEDC;
+  --bg:#0F0E11;
+  --sf:#1C1B1F;
+  --c0:#0F0E11; --c1:#1C1B1F; --c2:#211F24; --c3:#2B292E; --c4:#363439;
+  --ons:#E6E1E5; --onsv:#CAC4D0;
+  --out:#938F99; --outv:#49454E;
+  --r-xl:28px; --r-xs:6px; --r-full:100px; --r-md:12px;
+  --gap:3px;
+  --ease:cubic-bezier(0.2,0,0,1);
+}
+
+html { scroll-behavior: smooth; }
+
+/* hide icon text until font loads */
+.ms { opacity: 0; }
+@font-face { font-family: "Material Symbols Rounded"; }
+body.fonts-loaded .ms { opacity: 1; }
+
+body {
+  font-family:'Google Sans Flex','Google Sans',sans-serif;
+  font-size:14px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  color:var(--ons);
+  min-height:100vh;
+  /* subtle gradient: violet tint hướng lên trên */
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(79,55,139,.18) 0%, transparent 70%),
+    var(--bg);
+}
+
+.ms {
+  font-family:'Material Symbols Rounded';
+  font-style:normal; font-weight:normal; line-height:1;
+  display:inline-block; white-space:nowrap;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  user-select:none;
+  font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48;
+  flex-shrink:0;
+}
+.ms.f{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48}
+.ms.s16{font-size:16px} .ms.s20{font-size:20px} .ms.s24{font-size:24px}
+
+/* ── TOP APP BAR ── */
+.bar {
+  position:sticky; top:0; z-index:100;
+  display:flex; align-items:center;
+  padding:0 8px 0 20px; height:64px;
+  background:rgba(28,27,31,.85);
+  backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 var(--outv);
+}
+.bar-title {
+  display:flex; align-items:center;
+  font-family:'Outfit','Google Sans Flex',sans-serif;
+  font-size:22px; font-weight:500;
+  color:var(--ons); flex:1;
+}
+.k-logo {
+  position:relative; width:24.2px; height:24.2px; margin-right:10px;
+  display:flex; flex-shrink:0;
+}
+.k-logo-tl {
+  position:absolute; top:0; left:0; width:12px; height:12px;
+  border:1.5px solid var(--ons); border-radius:100% 3px 3px 3px;
+  box-sizing:border-box;
+}
+.k-logo-br {
+  position:absolute; top:12.2px; left:12.2px; width:12px; height:12px;
+  background:var(--ons); border-radius:3px 3px 100% 3px;
+}
+.bar-btn {
+  width:48px; height:48px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--onsv); text-decoration:none;
+  transition:background 150ms var(--ease);
+}
+.bar-btn:hover{background:rgba(230,225,229,.08)}
+
+/* ── PAGE ── */
+.page { width:100%; max-width:1024px; margin:0 auto; padding:0 24px 80px; }
+
+/* ── HERO ── */
+.hero { padding:48px 0 40px; }
+
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--sc); color:var(--osc);
+  font-size:11px; font-weight:500; letter-spacing:.5px;
+  padding:6px 14px 6px 10px;
+  border-radius:var(--r-full);
+  margin-bottom:24px;
+}
+
+.hero-display {
+  font-family:'Outfit','Google Sans Flex',sans-serif;
+  font-size:clamp(50px, 12vw, 104px);
+  font-weight:500;
+  line-height:1;
+  letter-spacing:0px;
+  color:var(--ons);
+  margin-bottom:16px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  white-space:nowrap;
+}
+.hero-display-accent { color:var(--p); }
+
+.hero-body {
+  font-size:16px; color:var(--onsv);
+  max-width:600px; line-height:1.65;
+  margin-bottom:32px;
+}
+
+/* ── BUTTON GROUP — shape morphing ── */
+.btn-row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+
+.btn-group { display:inline-flex; gap:var(--gap); }
+
+.btn-gi {
+  display:inline-flex; align-items:center; gap:8px;
+  height:40px; padding:0 20px;
+  font-family:'Google Sans Flex',sans-serif;
+  font-size:14px; font-weight:500; letter-spacing:.1px;
+  text-decoration:none; border:none; cursor:pointer;
+  transition:background 150ms var(--ease), filter 150ms var(--ease);
+}
+.btn-gi:first-child:not(:last-child) { border-radius:var(--r-full) var(--r-xs) var(--r-xs) var(--r-full); }
+.btn-gi:last-child:not(:first-child)  { border-radius:var(--r-xs) var(--r-full) var(--r-full) var(--r-xs); }
+.btn-gi:only-child                    { border-radius:var(--r-full); }
+
+.btn-filled { background:var(--p); color:var(--op); }
+.btn-filled:hover { filter:brightness(1.08); }
+.btn-filled[disabled] {
+  background:rgba(230,225,229,.12);
+  color:rgba(230,225,229,.38);
+  cursor:not-allowed; pointer-events:none;
+}
+.btn-tonal { background:var(--sc); color:var(--osc); }
+.btn-tonal:hover { background:#564F6B; }
+
+.btn-outlined {
+  display:inline-flex; align-items:center; gap:8px;
+  height:40px; padding:0 24px;
+  border-radius:var(--r-full);
+  border:1px solid var(--out);
+  background:transparent; color:var(--p);
+  font-family:'Google Sans Flex',sans-serif;
+  font-size:14px; font-weight:500; letter-spacing:.1px;
+  text-decoration:none; cursor:pointer;
+  transition:background 150ms var(--ease);
+}
+.btn-outlined:hover { background:rgba(208,188,255,.08); }
+
+/* ── SECTION LABEL ── */
+.sec-label {
+  display:flex; align-items:center; gap:8px;
+  font-size:11px; font-weight:600;
+  letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--onsv);
+  margin:36px 0 8px;
+  scroll-margin-top:80px;
+}
+.sec-label::after { content:''; flex:1; height:1px; background:var(--outv); }
+
+/* ── GROUPED CARDS — shape morphing ── */
+.group { display:flex; flex-direction:column; gap:var(--gap); }
+
+.group .card:only-child                         { border-radius:var(--r-xl); }
+.group .card:first-child:not(:only-child)       { border-radius:var(--r-xl) var(--r-xl) var(--r-xs) var(--r-xs); }
+.group .card:last-child:not(:only-child)        { border-radius:var(--r-xs) var(--r-xs) var(--r-xl) var(--r-xl); }
+.group .card:not(:first-child):not(:last-child) { border-radius:var(--r-xs); }
+
+/* ── DISCLAIMER ── */
+.card { outline: none; }
+.card[tabindex="0"] { cursor: pointer; transition: transform 200ms var(--ease), filter 200ms ease; }
+.card[tabindex="0"]:active { transform: scale(0.98); }
+.card[tabindex="0"]:hover { filter: brightness(1.15); }
+.warn { background:rgba(242,184,181,0.08); padding:0 24px; border-radius:var(--r-xl); border:1px solid rgba(242,184,181,0.15); }
+.warn-rows { display:flex; flex-direction:column; }
+.warn-row {
+  display:flex; align-items:flex-start; gap:20px;
+  padding:24px 0; border-bottom:1px solid rgba(242,184,181,.1);
+}
+.warn-row:last-child { border-bottom:none; }
+.warn-row-ico {
+  width:44px; height:44px; border-radius:50%;
+  background:rgba(242,184,181,.15);
+  display:flex; align-items:center; justify-content:center;
+  color:var(--e); flex-shrink:0;
+  margin-top:2px;
+}
+.warn-t { font-size:18px; font-weight:600; color:var(--e); margin-bottom:4px; font-family:'Google Sans Flex','Google Sans',sans-serif; }
+.warn-d { font-size:15px; color:rgba(242,184,181,.85); line-height:1.5; font-weight:400; }
+
+/* ── FEATURES ── */
+.feat {
+  display:flex; align-items:flex-start; gap:16px;
+  background:var(--c2); padding:18px;
+  transition:background 150ms var(--ease);
+  cursor:default;
+}
+.feat:hover { background:var(--c3); }
+.feat-ico {
+  width:48px; height:48px; flex-shrink:0;
+  border-radius:var(--r-md);
+  display:flex; align-items:center; justify-content:center;
+}
+.ip{background:var(--pc);color:var(--opc)}
+.is{background:var(--pc);color:var(--opc)}
+.it{background:var(--pc);color:var(--opc)}
+.feat-name {
+  font-family:'Google Sans Flex','Google Sans',sans-serif;
+  font-size:15px; font-weight:600; color:var(--ons); margin-bottom:3px;
+}
+.feat-desc { font-size:13px; color:var(--onsv); line-height:1.55; }
+
+/* ── REQUIREMENTS & ROADMAP — same row style ── */
+.row-card {
+  display:flex; align-items:center; gap:14px;
+  background:var(--c2); padding:13px 16px;
+  transition:background 150ms var(--ease);
+  cursor:default;
+}
+.row-card:hover { background:var(--c3); }
+.row-ico {
+  width:40px; height:40px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.row-lbl { flex:1; font-size:14px; font-weight:500; color:var(--ons); }
+.row-card.done .row-lbl { color:var(--onsv); }
+.row-tag {
+  font-size:11px; font-weight:600; letter-spacing:.4px;
+  padding:4px 10px; border-radius:var(--r-full); white-space:nowrap;
+}
+.t-done { background:var(--pc); color:var(--opc); }
+.t-wip  { background:var(--tc); color:var(--otc); }
+.t-plan { background:var(--c4); color:var(--onsv); }
+.t-val  { background:var(--c3); color:var(--onsv); font-family:'Google Sans Flex',sans-serif; }
+
+/* ── LICENSE ── */
+.lic {
+  display:flex; align-items:center; gap:16px;
+  background:var(--pc); border-radius:var(--r-xl); padding:20px;
+}
+.lic-ico {
+  width:52px; height:52px; border-radius:50%;
+  background:rgba(234,221,255,.15); color:var(--opc);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+}
+.lic-name {
+  font-family:'Google Sans Flex','Google Sans',sans-serif;
+  font-size:15px; font-weight:600; color:var(--opc); margin-bottom:3px;
+}
+.lic-sub { font-size:12px; color:rgba(234,221,255,.7); flex:1; }
+.btn-lic {
+  display:inline-flex; align-items:center; gap:6px;
+  background:rgba(56,30,114,.25); color:var(--opc);
+  height:36px; padding:0 16px; border-radius:var(--r-full);
+  font-family:'Google Sans Flex',sans-serif; font-size:13px; font-weight:500;
+  text-decoration:none; flex-shrink:0;
+  transition:background 150ms var(--ease);
+}
+.btn-lic:hover { background:rgba(56,30,114,.4); }
+
+/* ── RESPONSIVE ── */
+@media (min-width:720px) {
+  .page { padding:0 48px 80px; }
+
+  /* features 2 col trên desktop */
+  .feat-grid-wrap { display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); }
+  .feat-grid-wrap .card { border-radius:var(--r-xs) !important; }
+  .feat-grid-wrap .card:nth-child(1) { border-radius:var(--r-xl) var(--r-xs) var(--r-xs) var(--r-xs) !important; }
+  .feat-grid-wrap .card:nth-child(2) { border-radius:var(--r-xs) var(--r-xl) var(--r-xs) var(--r-xs) !important; }
+  .feat-grid-wrap .card:last-child {
+    grid-column:1/-1;
+    border-radius:var(--r-xs) var(--r-xs) var(--r-xl) var(--r-xl) !important;
+  }
+
+  /* req 2 col */
+  .req-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); }
+  .req-grid .card { border-radius:var(--r-xs) !important; }
+  .req-grid .card:nth-child(1) { border-radius:var(--r-xl) var(--r-xs) var(--r-xs) var(--r-xs) !important; }
+  .req-grid .card:nth-child(2) { border-radius:var(--r-xs) var(--r-xl) var(--r-xs) var(--r-xs) !important; }
+  .req-grid .card:nth-last-child(2) { border-radius:var(--r-xs) var(--r-xs) var(--r-xs) var(--r-xl) !important; }
+  .req-grid .card:nth-last-child(1) { border-radius:var(--r-xs) var(--r-xs) var(--r-xl) var(--r-xs) !important; }
+}
+
+@media (min-width:1024px) {
+  .page { padding:0 80px 80px; }
+  
+  /* features 3 col */
+  .feat-grid-wrap { grid-template-columns:1fr 1fr 1fr; }
+  .feat-grid-wrap .card:nth-child(1) { border-radius:var(--r-xl) var(--r-xs) var(--r-xs) var(--r-xl) !important; }
+  .feat-grid-wrap .card:nth-child(2) { border-radius:var(--r-xs) !important; }
+  .feat-grid-wrap .card:last-child {
+    grid-column:auto;
+    border-radius:var(--r-xs) var(--r-xl) var(--r-xl) var(--r-xs) !important;
+  }
+
+  /* req 3 col */
+  .req-grid { grid-template-columns:1fr 1fr 1fr; }
+  .req-grid .card:nth-child(1) { border-radius:var(--r-xl) var(--r-xs) var(--r-xs) var(--r-xs) !important; }
+  .req-grid .card:nth-child(2) { border-radius:var(--r-xs) !important; }
+  .req-grid .card:nth-child(3) { border-radius:var(--r-xs) var(--r-xl) var(--r-xs) var(--r-xs) !important; }
+  .req-grid .card:nth-last-child(3) { border-radius:var(--r-xs) var(--r-xs) var(--r-xs) var(--r-xl) !important; }
+  .req-grid .card:nth-last-child(2) { border-radius:var(--r-xs) !important; }
+  .req-grid .card:nth-last-child(1) { border-radius:var(--r-xs) var(--r-xs) var(--r-xl) var(--r-xs) !important; }
+  
+  /* disclaimer horizontal layout */
+  .warn-rows { flex-direction:row; gap:24px; padding:32px 0; }
+  .warn-row { flex:1; padding:0; border-bottom:none; border-right:1px solid rgba(242,184,181,.1); padding-right:24px; flex-direction:column; gap:16px; }
+  .warn-row:last-child { border-right:none; padding-right:0; }
+  .warn-t { font-size:16px; }
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(12px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.hero    { animation:fadeUp 400ms var(--ease) both; }
+.group   { animation:fadeUp 350ms var(--ease) both; }
+.lic     { animation:fadeUp 350ms var(--ease) both; }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-title">
+    <div class="k-logo">
+      <div class="k-logo-tl"></div>
+      <div class="k-logo-br"></div>
+    </div>
+    KydeOS
+  </div>
+  <a class="bar-btn" href="https://github.com/r1nzd/KydeOS" target="_blank" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+  </a>
+</header>
+
+<main class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      <span class="ms f s16" aria-hidden="true">science</span>
+      Aurora · Test Build
+    </div>
+    <h1 class="hero-display">
+      <span>Kyde</span><span class="hero-display-accent">OS</span>
+    </h1>
+    <p class="hero-body">A personal, experimental operating system built on Debian with a Material 3 UI — solo developed, fully open source.</p>
+    <div class="btn-row">
+      <div class="btn-group">
+        <button class="btn-gi btn-filled" disabled>
+          <span class="ms f s20" aria-hidden="true">download</span>Download ISO
+        </button>
+        <a class="btn-gi btn-tonal" href="https://github.com/r1nzd/KydeOS" target="_blank">
+          <span class="ms s20" aria-hidden="true">code</span>Source
+        </a>
+      </div>
+      <a class="btn-outlined" href="#roadmap">
+        Roadmap<span class="ms s20" aria-hidden="true">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <div class="sec-label">
+    <span class="ms f s16" style="color:var(--p)" aria-hidden="true">warning</span>
+    Disclaimer
+  </div>
+  <div class="group">
+    <div class="card warn" tabindex="0">
+      <div class="warn-rows">
+        <div class="warn-row">
+          <div class="warn-row-ico"><span class="ms f s24" aria-hidden="true">gpp_maybe</span></div>
+          <div><div class="warn-t">Test build — not a release</div><div class="warn-d">Early development. Use at your own risk.</div></div>
+        </div>
+        <div class="warn-row">
+          <div class="warn-row-ico"><span class="ms f s24" aria-hidden="true">policy</span></div>
+          <div><div class="warn-t">No warranty</div><div class="warn-d">Provided "as is". Bugs and crashes are expected.</div></div>
+        </div>
+        <div class="warn-row">
+          <div class="warn-row-ico"><span class="ms f s24" aria-hidden="true">hard_drive</span></div>
+          <div><div class="warn-t">Do not install on a real machine</div><div class="warn-d">Test inside QEMU or a VM only. Bare metal may cause data loss.</div></div>
+        </div>
+        <div class="warn-row">
+          <div class="warn-row-ico"><span class="ms f s24" aria-hidden="true">block</span></div>
+          <div><div class="warn-t">Not ready for daily use</div><div class="warn-d">For developers and contributors only.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="sec-label">
+    <span class="ms f s16" style="color:var(--p)" aria-hidden="true">auto_awesome</span>
+    Key features
+  </div>
+  <div class="group feat-grid-wrap">
+    <div class="card feat" tabindex="0">
+      <div class="feat-ico ip"><span class="ms f s24" aria-hidden="true">palette</span></div>
+      <div>
+        <div class="feat-name">Material 3 Expressive</div>
+        <p class="feat-desc">Entire UI in one visual language — dynamic color, fluid surfaces, expressive typography.</p>
+      </div>
+    </div>
+    <div class="card feat" tabindex="0">
+      <div class="feat-ico is"><span class="ms f s24" aria-hidden="true">speed</span></div>
+      <div>
+        <div class="feat-name">Performance first</div>
+        <p class="feat-desc">No bloatware, no telemetry, no hidden daemons. Lightweight and responsive.</p>
+      </div>
+    </div>
+    <div class="card feat" tabindex="0">
+      <div class="feat-ico it"><span class="ms f s24" aria-hidden="true">deployed_code</span></div>
+      <div>
+        <div class="feat-name">Debian foundation</div>
+        <p class="feat-desc">Rock-solid stability and the vast Debian Stable software repository.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- REQUIREMENTS -->
+  <div class="sec-label">
+    <span class="ms f s16" style="color:var(--p)" aria-hidden="true">memory</span>
+    System requirements
+  </div>
+  <div class="group req-grid">
+    <div class="card row-card" tabindex="0">
+      <div class="row-ico" style="background:var(--pc);color:var(--opc)"><span class="ms f s20" aria-hidden="true">developer_board</span></div>
+      <span class="row-lbl">Architecture</span>
+      <span class="row-tag t-val">x86_64 · ARM</span>
+    </div>
+    <div class="card row-card" tabindex="0">
+      <div class="row-ico" style="background:var(--pc);color:var(--opc)"><span class="ms f s20" aria-hidden="true">memory</span></div>
+      <span class="row-lbl">RAM minimum</span>
+      <span class="row-tag t-val">2 GB</span>
+    </div>
+    <div class="card row-card" tabindex="0">
+      <div class="row-ico" style="background:var(--pc);color:var(--opc)"><span class="ms f s20" aria-hidden="true">hard_drive</span></div>
+      <span class="row-lbl">Storage minimum</span>
+      <span class="row-tag t-val">15 GB</span>
+    </div>
+    <div class="card row-card" tabindex="0">
+      <div class="row-ico" style="background:var(--pc);color:var(--opc)"><span class="ms f s20" aria-hidden="true">display_settings</span></div>
+      <span class="row-lbl">Boot</span>
+      <span class="row-tag t-val">UEFI · Legacy BIOS</span>
+    </div>
+    <div class="card row-card" tabindex="0">
+      <div class="row-ico" style="background:var(--pc);color:var(--opc)"><span class="ms f s20" aria-hidden="true">desktop_windows</span></div>
+      <span class="row-lbl">Display</span>
+      <span class="row-tag t-val">Wayland · XWayland</span>
+    </div>
+    <div class="card row-card" tabindex="0">
+      <div class="row-ico" style="background:var(--pc);color:var(--opc)"><span class="ms f s20" aria-hidden="true">save</span></div>
+      <span class="row-lbl">ISO size</span>
+      <span class="row-tag t-val">2–3 GB</span>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="sec-label" id="roadmap">
+    <span class="ms f s16" style="color:var(--p)" aria-hidden="true">route</span>
+    Roadmap
+  </div>
+  <div class="group">
+    <div class="card row-card done" tabindex="0">
+      <div class="row-ico" style="background:var(--pc);color:var(--opc)"><span class="ms f s20" aria-hidden="true">check</span></div>
+      <span class="row-lbl">Bootable base ISO from Debian Bookworm rootfs</span>
+      <span class="row-tag t-done">Done</span>
+    </div>
+    <div class="card row-card done" tabindex="0">
+      <div class="row-ico" style="background:var(--pc);color:var(--opc)"><span class="ms f s20" aria-hidden="true">check</span></div>
+      <span class="row-lbl">QEMU boot testing &amp; live-build pipeline</span>
+      <span class="row-tag t-done">Done</span>
+    </div>
+    <div class="card row-card done" tabindex="0">
+      <div class="row-ico" style="background:var(--pc);color:var(--opc)"><span class="ms f s20" aria-hidden="true">check</span></div>
+      <span class="row-lbl">GPLv3 license &amp; project documentation</span>
+      <span class="row-tag t-done">Done</span>
+    </div>
+    <div class="card row-card" tabindex="0">
+      <div class="row-ico" style="background:var(--tc);color:var(--otc)"><span class="ms f s20" aria-hidden="true">pending</span></div>
+      <span class="row-lbl">Working graphical session in QEMU (Weston fbdev)</span>
+      <span class="row-tag t-wip">In progress</span>
+    </div>
+    <div class="card row-card" tabindex="0">
+      <div class="row-ico" style="background:var(--tc);color:var(--otc)"><span class="ms f s20" aria-hidden="true">pending</span></div>
+      <span class="row-lbl">KydeShell — custom shell written in Rust</span>
+      <span class="row-tag t-wip">In progress</span>
+    </div>
+    <div class="card row-card" tabindex="0">
+      <div class="row-ico" style="background:var(--c4);color:var(--out)"><span class="ms s20" aria-hidden="true">radio_button_unchecked</span></div>
+      <span class="row-lbl">Material 3 Expressive theme across all system surfaces</span>
+      <span class="row-tag t-plan">Planned</span>
+    </div>
+    <div class="card row-card" tabindex="0">
+      <div class="row-ico" style="background:var(--c4);color:var(--out)"><span class="ms s20" aria-hidden="true">radio_button_unchecked</span></div>
+      <span class="row-lbl">Built-in apps: Krowser, Terminal, File Manager, Text Editor, Settings</span>
+      <span class="row-tag t-plan">Planned</span>
+    </div>
+    <div class="card row-card" tabindex="0">
+      <div class="row-ico" style="background:var(--c4);color:var(--out)"><span class="ms s20" aria-hidden="true">radio_button_unchecked</span></div>
+      <span class="row-lbl">KydeStore + dedicated APT repository</span>
+      <span class="row-tag t-plan">Planned</span>
+    </div>
+  </div>
+
+  <!-- LICENSE -->
+  <div class="sec-label">
+    <span class="ms f s16" style="color:var(--p)" aria-hidden="true">balance</span>
+    License
+  </div>
+  <div class="lic">
+    <div class="lic-ico"><span class="ms f s24" aria-hidden="true">policy</span></div>
+    <div style="flex:1">
+      <div class="lic-name">GNU General Public License v3.0</div>
+      <div class="lic-sub">Free to use, study, share, and modify. Derivatives must stay open.</div>
+    </div>
+    <a href="https://github.com/r1nzd/KydeOS/blob/main/LICENSE" target="_blank" class="btn-lic">
+      <span class="ms s16" aria-hidden="true">open_in_new</span>View
+    </a>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="sec-label">
+    <span class="ms f s16" style="color:var(--p)" aria-hidden="true">perm_contact_calendar</span>
+    Contact
+  </div>
+  <div class="group">
+    <a onclick="navigator.clipboard.writeText('+84968747546'); const i=this.querySelector('.copy-icon'); i.textContent='check'; setTimeout(()=>i.textContent='content_copy', 2000)" class="card row-card" style="text-decoration:none; cursor:pointer" tabindex="0" role="button">
+      <div class="row-ico" style="background:var(--pc);color:var(--opc)"><span class="ms f s20" aria-hidden="true">call</span></div>
+      <span class="row-lbl">(+84) 968747546</span>
+      <span class="ms s16 copy-icon" style="color:var(--onsv); margin-right:4px;">content_copy</span>
+    </a>
+    <a href="https://x.com/r1nzd" target="_blank" class="card row-card" style="text-decoration:none; cursor:pointer">
+      <div class="row-ico" style="background:var(--pc);color:var(--opc)"><span class="ms f s20" aria-hidden="true">alternate_email</span></div>
+      <span class="row-lbl">X (@r1nzd)</span>
+      <span class="ms s16" style="color:var(--onsv); margin-right:4px;">open_in_new</span>
+    </a>
+    <a href="https://github.com/r1nzd" target="_blank" class="card row-card" style="text-decoration:none; cursor:pointer">
+      <div class="row-ico" style="background:var(--pc);color:var(--opc)"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg></div>
+      <span class="row-lbl">GitHub</span>
+      <span class="ms s16" style="color:var(--onsv); margin-right:4px;">open_in_new</span>
+    </a>
+  </div>
+
+  <footer style="margin-top: 48px; text-align: center; font-size: 13px; color: var(--onsv); letter-spacing: 0.2px; line-height: 1.6;">
+    <p>© 2026 Acee All Rights Reserved.</p>
+    <p style="margin-top: 4px; opacity: 0.8;">Any trademarks or logos used on this site are property of their respective owners.</p>
+  </footer>
+
+</main>
+<script>
+document.fonts.ready.then(() => document.body.classList.add("fonts-loaded"));
+
+document.addEventListener('click', function(e) {
+  const card = e.target.closest('.card[tabindex="0"]');
+  if (card && card.tagName !== 'A') {
+    let title = '';
+    let desc = '';
+    let icon = 'info';
+    let iconBg = 'var(--pc)';
+    let iconColor = 'var(--opc)';
+
+    const descMap = {
+      'Material 3 Expressive': 'Embraces the latest Material Design 3 guidelines with expressive colors, smooth typography, and refined animations for a modern desktop experience.',
+      'Performance first': 'Engineered to be lightweight and responsive, ensuring that the system gets out of your way and prioritizes active application workloads.',
+      'Debian foundation': 'Built on top of Debian Bookworm, benefiting from its legendary stability, massive package repository, and trusted security updates.',
+      'Architecture': 'Supports both standard 64-bit x86 architectures and ARM-based machines, allowing deployment across a wide variety of hardware including modern PCs and single-board computers.',
+      'RAM minimum': 'To ensure smooth multitasking and responsive graphical sessions, a minimum of 2 gigabytes of system memory is required natively or allocated to your virtual machine.',
+      'Storage minimum': 'At least 15 gigabytes of free disk space is necessary for a full installation, ensuring enough room for the base system, built-in apps, and a swap file.',
+      'Boot': 'Compatible with modern UEFI systems with Secure Boot capabilities, while still maintaining legacy BIOS compatibility for older hardware.',
+      'Display': 'Utilizes the modern Wayland display server protocol for tearing-free, secure rendering. XWayland is included out-of-the-box ensuring backward compatibility with legacy X11 applications.',
+      'ISO size': 'The downloadable live ISO image is compressed to between 2 and 3 gigabytes. It can be written to a standard USB flash drive via tools like Rufus or BalenaEtcher.',
+      'Bootable base ISO from Debian Bookworm rootfs': 'We have successfully bootstrapped a minimal Debian root file system and integrated the necessary bootloaders to generate a bootable live image.',
+      'QEMU boot testing & live-build pipeline': 'Automated builds and ISO generation pipelines are in place. The generated images have been thoroughly tested to boot properly under QEMU.',
+      'GPLv3 license & project documentation': 'The repository has been initialized with the GNU General Public License v3, along with comprehensive READMEs and architectural blueprints.',
+      'Working graphical session in QEMU (Weston fbdev)': 'We are currently configuring a lightweight Weston compositor utilizing the framebuffer device to establish our first graphical output layer.',
+      'KydeShell — custom shell written in Rust': 'Active development has started on KydeShell, our custom desktop environment wrapper implemented in memory-safe Rust for optimal speed and reliability.',
+      'Material 3 Expressive theme across all system surfaces': 'Planned integration of a central theming engine that automatically propagates Material You color palettes across GTK/Qt applications and custom shell components.',
+      'Built-in apps: Krowser, Terminal, File Manager, Text Editor, Settings': 'Our roadmap includes developing a suite of essential, cohesive graphical user applications tailored specifically for the KydeOS design language.',
+      'KydeStore + dedicated APT repository': 'We plan to host a dedicated package repository along with a user-friendly graphical storefront (KydeStore) for discovering and installing software.'
+    };
+
+    if (card.classList.contains('warn')) {
+      title = 'Disclaimer';
+      desc = 'Please note that KydeOS is in early development. This means bugs, crashes, and data loss might occur if installed on bare metal. Use virtual machines like QEMU for testing.';
+      icon = 'warning';
+      iconBg = 'var(--ec)'; iconColor = 'var(--oec)';
+    } else if (card.classList.contains('feat')) {
+      const elTitle = card.querySelector('.feat-name');
+      const elIco = card.querySelector('.ms');
+      title = elTitle ? elTitle.textContent.trim() : 'Feature';
+      desc = descMap[title] || '';
+      icon = elIco ? elIco.textContent : 'auto_awesome';
+    } else if (card.classList.contains('row-card')) {
+      const elLbl = card.querySelector('.row-lbl');
+      const elTag = card.querySelector('.row-tag');
+      const elIco = card.querySelector('.ms');
+      title = elLbl ? elLbl.textContent.trim() : 'Detail';
+      desc = descMap[title] || ((elTag ? elTag.textContent : '') + '. Further details are available in the repository documentation.');
+      icon = elIco ? elIco.textContent : 'info';
+    }
+    
+    if (title) {
+      showInfo(title, desc, icon, iconBg, iconColor);
+    }
+  }
+});
+
+function showInfo(title, desc, icon, iconBg, iconColor) {
+  let m = document.getElementById('infoModal');
+  if (!m) {
+    m = document.createElement('dialog');
+    m.id = 'infoModal';
+    m.style.cssText = 'margin:auto; padding:24px; max-width:400px; width:90%; border:none; border-radius:32px; background:var(--c2); color:var(--ons); outline:none; box-shadow:0 8px 32px rgba(0,0,0,0.5);';
+    m.innerHTML = `
+      <style>dialog::backdrop { background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }</style>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <div id="modalIcon" style="width:48px; height:48px; border-radius:16px; display:flex; align-items:center; justify-content:center; background:var(--pc); color:var(--opc);">
+          <span class="ms f s24" aria-hidden="true">info</span>
+        </div>
+        <form method="dialog">
+          <button style="width:40px; height:40px; border-radius:50%; background:var(--c4); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; color:var(--onsv); transition: filter 200ms ease;" onmouseover="this.style.filter='brightness(1.2)'" onmouseout="this.style.filter='none'">
+            <span class="ms s20" aria-hidden="true">close</span>
+          </button>
+        </form>
+      </div>
+      <div id="modalTitle" style="font-family:'Outfit','Google Sans Flex',sans-serif; font-size:22px; font-weight:500; margin-bottom:12px;">Title</div>
+      <div id="modalDesc" style="font-size:15px; color:var(--onsv); line-height:1.6;">Description</div>
+    `;
+    document.body.appendChild(m);
+    
+    m.addEventListener('click', function(e) {
+      if(e.target === m) m.close();
+    });
+  }
+  
+  document.getElementById('modalTitle').textContent = title;
+  document.getElementById('modalDesc').textContent = desc;
+  const ic = document.getElementById('modalIcon');
+  ic.style.background = iconBg;
+  ic.style.color = iconColor;
+  ic.querySelector('.ms').textContent = icon;
+  
+  m.showModal();
+}
+</script>
+</body>
+</html>
