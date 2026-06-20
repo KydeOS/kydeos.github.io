@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy &mdash; KydeOS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root {
+  --p:#D0BCFF; --op:#381E72; --pc:#4F378B; --opc:#EADDFF;
+  --s:#CCC2DC; --os:#332D41; --sc:#4A4458; --osc:#E8DEF8;
+  --t:#EFB8C8; --ot:#492532; --tc:#633B48; --otc:#FFD8E4;
+  --e:#F2B8B5; --oe:#601410; --ec:#8C1D18; --oec:#F9DEDC;
+  --bg:#0F0E11;
+  --sf:#1C1B1F;
+  --c0:#0F0E11; --c1:#1C1B1F; --c2:#211F24; --c3:#2B292E; --c4:#363439;
+  --ons:#E6E1E5; --onsv:#CAC4D0;
+  --out:#938F99; --outv:#49454E;
+  --r-xl:28px; --r-xs:6px; --r-full:100px; --r-md:12px;
+  --gap:3px;
+  --ease:cubic-bezier(0.2,0,0,1);
+}
+html { scroll-behavior: smooth; }
+.ms { opacity: 0; }
+@font-face { font-family: "Material Symbols Rounded"; }
+body.fonts-loaded .ms { opacity: 1; }
+body {
+  font-family:'Google Sans Flex','Google Sans',sans-serif;
+  font-size:16px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  color:var(--ons);
+  min-height:100vh;
+  background:
+    radial-gradient(ellipse 80% 40% at 50% 0%, rgba(79,55,139,.18) 0%, transparent 70%),
+    var(--bg);
+}
+.ms {
+  font-family:'Material Symbols Rounded';
+  font-style:normal; font-weight:normal; line-height:1;
+  display:inline-block; white-space:nowrap;
+  font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  user-select:none;
+  font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48;
+  flex-shrink:0;
+}
+.ms.f{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48}
+.ms.s16{font-size:16px} .ms.s20{font-size:20px} .ms.s24{font-size:24px}
+.bar {
+  position:sticky; top:0; z-index:100;
+  display:flex; align-items:center;
+  padding:0 8px 0 20px; height:64px;
+  background:rgba(28,27,31,.85);
+  backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 var(--outv);
+}
+.bar-title {
+  display:flex; align-items:center;
+  font-family:'Outfit','Google Sans Flex',sans-serif;
+  font-size:22px; font-weight:500;
+  color:var(--ons); flex:1; text-decoration:none;
+}
+.k-logo {
+  position:relative; width:24.2px; height:24.2px; margin-right:10px;
+  display:flex; flex-shrink:0;
+}
+.k-logo-tl {
+  position:absolute; top:0; left:0; width:12px; height:12px;
+  border:1.5px solid var(--ons); border-radius:100% 3px 3px 3px;
+  box-sizing:border-box;
+}
+.k-logo-br {
+  position:absolute; top:12.2px; left:12.2px; width:12px; height:12px;
+  background:var(--ons); border-radius:3px 3px 100% 3px;
+}
+.bar-btn {
+  width:48px; height:48px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--onsv); text-decoration:none;
+  transition:background 150ms var(--ease);
+}
+.bar-btn:hover{background:rgba(230,225,229,.08)}
+.page { width:100%; max-width:800px; margin:0 auto; padding:0 24px 80px; }
+.hero { padding:48px 0 40px; }
+
+h1 {
+  font-family:'Outfit','Google Sans Flex',sans-serif;
+  font-size:clamp(36px, 8vw, 56px);
+  font-weight:500;
+  line-height:1.2;
+  letter-spacing:-1px;
+  color:var(--p);
+  margin-bottom:24px;
+}
+h2 {
+  font-family:'Outfit','Google Sans Flex',sans-serif;
+  font-size:24px;
+  font-weight:500;
+  color:var(--ons);
+  margin-top:40px;
+  margin-bottom:16px;
+}
+p, ul {
+  margin-bottom:16px;
+  color:var(--onsv);
+}
+ul {
+  padding-left:24px;
+}
+li {
+  margin-bottom:8px;
+}
+strong {
+  color:var(--ons);
+  font-weight:500;
+}
+a {
+  color:var(--p);
+  text-decoration:none;
+}
+a:hover {
+  text-decoration:underline;
+}
+hr {
+  border:none;
+  border-top:1px solid var(--outv);
+  margin:40px 0;
+}
+</style>
+</head>
+<body>
+<header class="bar">
+  <a href="index.html" class="bar-title">
+    <div class="k-logo">
+      <div class="k-logo-tl"></div>
+      <div class="k-logo-br"></div>
+    </div>
+    KydeOS
+  </a>
+  <a class="bar-btn" href="https://github.com/r1nzd/KydeOS" target="_blank" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+  </a>
+</header>
+<main class="page">
+  <div class="hero">
+    <h1>Privacy Policy</h1>
+    <p><strong>Effective date:</strong> June 20, 2026<br>
+    <strong>Version:</strong> Aurora (1.0)<br>
+    <strong>License:</strong> GNU General Public License v3.0 (GPLv3)<br>
+    <strong>Source code:</strong> <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></p>
+  </div>
+  
+  <hr>
+
+  <h2>1. Overview</h2>
+  <p>KydeOS is a free, open-source operating system designed and maintained by a single independent developer. This Privacy Policy explains what data KydeOS collects during normal system operation, how that data is handled, and what rights you hold as a user of this software.</p>
+  <p>The guiding principle behind KydeOS's approach to privacy is straightforward: collect the absolute minimum necessary, be fully transparent about what is collected, and never share user data with third parties under any circumstances. KydeOS is not a commercial product. There are no investors, no advertisers, no monetization strategies dependent on user data. This project exists solely as a personal, open-source endeavor.</p>
+  <p>Because KydeOS is fully open source under the GPLv3, every line of code that runs on your machine is publicly available and auditable by anyone. This means you are never required to take our word for it — you can verify exactly what KydeOS does and does not do with your data by reading the source code directly.</p>
+
+  <hr>
+
+  <h2>2. What Data KydeOS Collects</h2>
+  <p>Under normal operating conditions, KydeOS collects no personal data whatsoever. No telemetry pipelines exist in the base system. No crash reports are transmitted automatically. No usage analytics, behavioral metrics, hardware fingerprints, or diagnostic data of any kind are sent to any remote server without your explicit, informed consent.</p>
+  <p>The following specific scenarios may involve limited and unavoidable data exposure:</p>
+  <ul>
+    <li><strong>System update checks:</strong> When KydeOS checks for available system updates, a standard network request is made to the update server. This request will expose your IP address to that server as a natural consequence of how internet networking works. No other data is transmitted alongside this request. Your IP address is not logged, stored, or cross-referenced with any user account or identity.</li>
+    <li><strong>KydeStore — developer and alpha tester registration:</strong> KydeStore is the native software center built into KydeOS. An alpha developer program is available, allowing early community members to register as testers. If you choose to register for this program inside KydeStore, the information you voluntarily submit during registration — which may include a username, email address, or similar identifiers — is collected solely for the purpose of managing that program. This information is not sold, shared with third parties, used for advertising, or processed for any purpose beyond the developer program itself.</li>
+    <li><strong>Third-party applications:</strong> KydeOS supports installation of software via .deb packages, Flatpak, and AppImage. Applications installed through these formats are entirely independent software projects with their own codebases, developers, and privacy practices. KydeOS has no visibility into, control over, or responsibility for the data practices of any third-party application you choose to install. You should consult the privacy policy of each application individually.</li>
+    <li><strong>Krowser — the built-in browser:</strong> Krowser is a first-party browser developed by the KydeOS developer and bundled as the default browsing experience. When you use Krowser to browse the web, it connects to the websites you visit. Those websites operate under their own privacy policies and may collect data according to their own practices. Krowser does not transmit your browsing history, search queries, visited URLs, or any usage data back to the KydeOS developer. Krowser is a browser, not a surveillance tool.</li>
+  </ul>
+
+  <hr>
+
+  <h2>3. What Data KydeOS Does Not Collect</h2>
+  <p>To be fully explicit, KydeOS does not collect, transmit, store, or process any of the following:</p>
+  <ul>
+    <li>Full names, email addresses, or any personally identifiable information during normal OS operation</li>
+    <li>Hardware identifiers, device serial numbers, or machine fingerprints</li>
+    <li>Geographic location data of any kind</li>
+    <li>Usage statistics, session durations, or behavioral analytics</li>
+    <li>Crash reports or diagnostic logs transmitted automatically</li>
+    <li>Keyboard input, clipboard contents, or on-screen activity</li>
+    <li>Installed application lists</li>
+    <li>Network activity logs or browsing history</li>
+    <li>Any data sold to, shared with, or accessible by advertisers, data brokers, or any commercial third party</li>
+  </ul>
+
+  <hr>
+
+  <h2>4. Open Source as a Privacy Guarantee</h2>
+  <p>KydeOS is licensed under the GNU General Public License v3.0. This is not merely a legal formality — it is a structural privacy guarantee. Every component of KydeOS that runs on your machine is publicly available for inspection at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a>.</p>
+  <p>Anyone with the technical knowledge to do so can audit the codebase to verify that no hidden telemetry, background data collection, or undisclosed network communication exists anywhere in the system. This level of transparency is not possible with closed-source operating systems, and it is one of the core reasons KydeOS is and will remain fully open source.</p>
+  <p>If you discover any behavior in KydeOS that appears to contradict this policy — any unexpected network request, any undisclosed data transmission, or any privacy-relevant code that is not documented here — please report it immediately as a security or privacy issue on the GitHub repository. Such reports are taken with the utmost seriousness.</p>
+
+  <hr>
+
+  <h2>5. Security</h2>
+  <p>Although KydeOS does not collect personal data, the project takes system-level security seriously. The following security features are included in KydeOS:</p>
+  <ul>
+    <li>LUKS2 full-disk encryption support, protecting all data stored on your device at rest</li>
+    <li>AppArmor and SELinux sandboxing to isolate applications and limit potential damage from compromised software</li>
+    <li>A minimal default service configuration, reducing the attack surface by avoiding unnecessary background daemons and exposed ports</li>
+    <li>Regular security patches applied from the Debian Stable upstream, with critical fixes applied out-of-cycle whenever necessary</li>
+  </ul>
+
+  <hr>
+
+  <h2>6. Your Rights</h2>
+  <p>Because KydeOS does not collect personal data during normal system operation, there is in most cases no personal data held by the developer that pertains to you. If you participated in the KydeStore developer program or interacted with any associated service that did collect information from you, you have the right to:</p>
+  <ul>
+    <li>Request access to any personal data held about you</li>
+    <li>Request correction of inaccurate data</li>
+    <li>Request deletion of your data at any time</li>
+  </ul>
+  <p>To exercise any of these rights, contact the developer via GitHub at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a>.</p>
+
+  <hr>
+
+  <h2>7. Children's Privacy</h2>
+  <p>KydeOS is not directed at children under the age of 13 and does not knowingly collect any personal data from minors. If you have reason to believe that a minor has submitted personal information through KydeStore or any associated service, please contact the developer via GitHub so that the information can be promptly removed.</p>
+
+  <hr>
+
+  <h2>8. Changes to This Policy</h2>
+  <p>This Privacy Policy may be updated as KydeOS evolves — as new features are introduced, new services are launched, or new legal requirements arise. All changes will be committed to the public GitHub repository with a clear and auditable diff, so the full history of this document is always publicly accessible.</p>
+  <p>The effective date at the top of this document will be updated to reflect the date of the most recent revision. Continued use of KydeOS following the publication of changes constitutes acceptance of the updated policy.</p>
+
+  <hr>
+
+  <h2>9. Contact</h2>
+  <p>For any privacy-related questions, concerns, or data requests, reach out through:</p>
+  <ul>
+    <li>GitHub: <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a> (open an issue or discussion)</li>
+  </ul>
+
+  <hr>
+
+  <p style="text-align: center; font-size: 14px; margin-top: 40px; opacity: 0.7;"><em>KydeOS Aurora &middot; GPLv3 &middot; This software is provided without warranty. Use at your own risk.</em></p>
+
+  <footer style="margin-top: 48px; text-align: center; font-size: 13px; color: var(--onsv); letter-spacing: 0.2px; line-height: 1.6;">
+    <p>© 2026 Acee All Rights Reserved.</p>
+    <p style="margin-top: 4px; opacity: 0.8;">Any trademarks or logos used on this site are property of their respective owners.</p>
+  </footer>
+</main>
+<script>
+document.fonts.ready.then(() => document.body.classList.add("fonts-loaded"));
+</script>
+</body>
+</html>
