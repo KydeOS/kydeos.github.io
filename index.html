@@ -10,7 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
 :root {
   --p:#D0BCFF; --op:#381E72; --pc:#4F378B; --opc:#EADDFF;
   --s:#CCC2DC; --os:#332D41; --sc:#4A4458; --osc:#E8DEF8;
@@ -25,26 +24,20 @@
   --gap:3px;
   --ease:cubic-bezier(0.2,0,0,1);
 }
-
 html { scroll-behavior: smooth; }
-
-/* hide icon text until font loads */
 .ms { opacity: 0; }
 @font-face { font-family: "Material Symbols Rounded"; }
 body.fonts-loaded .ms { opacity: 1; }
-
 body {
   font-family:'Google Sans Flex','Google Sans',sans-serif;
   font-size:14px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
   color:var(--ons);
   min-height:100vh;
-  /* subtle gradient: violet tint hướng lên trên */
   background:
     radial-gradient(ellipse 80% 40% at 50% 0%, rgba(79,55,139,.18) 0%, transparent 70%),
     var(--bg);
 }
-
 .ms {
   font-family:'Material Symbols Rounded';
   font-style:normal; font-weight:normal; line-height:1;
@@ -59,8 +52,6 @@ body {
 }
 .ms.f{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48}
 .ms.s16{font-size:16px} .ms.s20{font-size:20px} .ms.s24{font-size:24px}
-
-/* ── TOP APP BAR ── */
 .bar {
   position:sticky; top:0; z-index:100;
   display:flex; align-items:center;
@@ -95,13 +86,8 @@ body {
   transition:background 150ms var(--ease);
 }
 .bar-btn:hover{background:rgba(230,225,229,.08)}
-
-/* ── PAGE ── */
 .page { width:100%; max-width:1024px; margin:0 auto; padding:0 24px 80px; }
-
-/* ── HERO ── */
 .hero { padding:48px 0 40px; }
-
 .hero-eyebrow {
   display:inline-flex; align-items:center; gap:6px;
   background:var(--sc); color:var(--osc);
@@ -110,7 +96,6 @@ body {
   border-radius:var(--r-full);
   margin-bottom:24px;
 }
-
 .hero-display {
   font-family:'Outfit','Google Sans Flex',sans-serif;
   font-size:clamp(50px, 12vw, 104px);
@@ -125,18 +110,13 @@ body {
   white-space:nowrap;
 }
 .hero-display-accent { color:var(--p); }
-
 .hero-body {
   font-size:16px; color:var(--onsv);
   max-width:600px; line-height:1.65;
   margin-bottom:32px;
 }
-
-/* ── BUTTON GROUP — shape morphing ── */
 .btn-row { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
-
 .btn-group { display:inline-flex; gap:var(--gap); }
-
 .btn-gi {
   display:inline-flex; align-items:center; gap:8px;
   height:40px; padding:0 20px;
@@ -148,7 +128,6 @@ body {
 .btn-gi:first-child:not(:last-child) { border-radius:var(--r-full) var(--r-xs) var(--r-xs) var(--r-full); }
 .btn-gi:last-child:not(:first-child)  { border-radius:var(--r-xs) var(--r-full) var(--r-full) var(--r-xs); }
 .btn-gi:only-child                    { border-radius:var(--r-full); }
-
 .btn-filled { background:var(--p); color:var(--op); }
 .btn-filled:hover { filter:brightness(1.08); }
 .btn-filled[disabled] {
@@ -158,7 +137,6 @@ body {
 }
 .btn-tonal { background:var(--sc); color:var(--osc); }
 .btn-tonal:hover { background:#564F6B; }
-
 .btn-outlined {
   display:inline-flex; align-items:center; gap:8px;
   height:40px; padding:0 24px;
@@ -171,8 +149,6 @@ body {
   transition:background 150ms var(--ease);
 }
 .btn-outlined:hover { background:rgba(208,188,255,.08); }
-
-/* ── SECTION LABEL ── */
 .sec-label {
   display:flex; align-items:center; gap:8px;
   font-size:11px; font-weight:600;
@@ -182,16 +158,11 @@ body {
   scroll-margin-top:80px;
 }
 .sec-label::after { content:''; flex:1; height:1px; background:var(--outv); }
-
-/* ── GROUPED CARDS — shape morphing ── */
 .group { display:flex; flex-direction:column; gap:var(--gap); }
-
 .group .card:only-child                         { border-radius:var(--r-xl); }
 .group .card:first-child:not(:only-child)       { border-radius:var(--r-xl) var(--r-xl) var(--r-xs) var(--r-xs); }
 .group .card:last-child:not(:only-child)        { border-radius:var(--r-xs) var(--r-xs) var(--r-xl) var(--r-xl); }
 .group .card:not(:first-child):not(:last-child) { border-radius:var(--r-xs); }
-
-/* ── DISCLAIMER ── */
 .card { outline: none; }
 .card[tabindex="0"] { cursor: pointer; transition: transform 200ms var(--ease), filter 200ms ease; }
 .card[tabindex="0"]:active { transform: scale(0.98); }
@@ -212,8 +183,6 @@ body {
 }
 .warn-t { font-size:18px; font-weight:600; color:var(--e); margin-bottom:4px; font-family:'Google Sans Flex','Google Sans',sans-serif; }
 .warn-d { font-size:15px; color:rgba(242,184,181,.85); line-height:1.5; font-weight:400; }
-
-/* ── FEATURES ── */
 .feat {
   display:flex; align-items:flex-start; gap:16px;
   background:var(--c2); padding:18px;
@@ -234,8 +203,6 @@ body {
   font-size:15px; font-weight:600; color:var(--ons); margin-bottom:3px;
 }
 .feat-desc { font-size:13px; color:var(--onsv); line-height:1.55; }
-
-/* ── REQUIREMENTS & ROADMAP — same row style ── */
 .row-card {
   display:flex; align-items:center; gap:14px;
   background:var(--c2); padding:13px 16px;
@@ -257,8 +224,6 @@ body {
 .t-wip  { background:var(--tc); color:var(--otc); }
 .t-plan { background:var(--c4); color:var(--onsv); }
 .t-val  { background:var(--c3); color:var(--onsv); font-family:'Google Sans Flex',sans-serif; }
-
-/* ── LICENSE ── */
 .lic {
   display:flex; align-items:center; gap:16px;
   background:var(--pc); border-radius:var(--r-xl); padding:20px;
@@ -282,12 +247,8 @@ body {
   transition:background 150ms var(--ease);
 }
 .btn-lic:hover { background:rgba(56,30,114,.4); }
-
-/* ── RESPONSIVE ── */
 @media (min-width:720px) {
   .page { padding:0 48px 80px; }
-
-  /* features 2 col trên desktop */
   .feat-grid-wrap { display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); }
   .feat-grid-wrap .card { border-radius:var(--r-xs) !important; }
   .feat-grid-wrap .card:nth-child(1) { border-radius:var(--r-xl) var(--r-xs) var(--r-xs) var(--r-xs) !important; }
@@ -296,8 +257,6 @@ body {
     grid-column:1/-1;
     border-radius:var(--r-xs) var(--r-xs) var(--r-xl) var(--r-xl) !important;
   }
-
-  /* req 2 col */
   .req-grid { display:grid; grid-template-columns:1fr 1fr; gap:var(--gap); }
   .req-grid .card { border-radius:var(--r-xs) !important; }
   .req-grid .card:nth-child(1) { border-radius:var(--r-xl) var(--r-xs) var(--r-xs) var(--r-xs) !important; }
@@ -305,11 +264,8 @@ body {
   .req-grid .card:nth-last-child(2) { border-radius:var(--r-xs) var(--r-xs) var(--r-xs) var(--r-xl) !important; }
   .req-grid .card:nth-last-child(1) { border-radius:var(--r-xs) var(--r-xs) var(--r-xl) var(--r-xs) !important; }
 }
-
 @media (min-width:1024px) {
   .page { padding:0 80px 80px; }
-  
-  /* features 3 col */
   .feat-grid-wrap { grid-template-columns:1fr 1fr 1fr; }
   .feat-grid-wrap .card:nth-child(1) { border-radius:var(--r-xl) var(--r-xs) var(--r-xs) var(--r-xl) !important; }
   .feat-grid-wrap .card:nth-child(2) { border-radius:var(--r-xs) !important; }
@@ -317,8 +273,6 @@ body {
     grid-column:auto;
     border-radius:var(--r-xs) var(--r-xl) var(--r-xl) var(--r-xs) !important;
   }
-
-  /* req 3 col */
   .req-grid { grid-template-columns:1fr 1fr 1fr; }
   .req-grid .card:nth-child(1) { border-radius:var(--r-xl) var(--r-xs) var(--r-xs) var(--r-xs) !important; }
   .req-grid .card:nth-child(2) { border-radius:var(--r-xs) !important; }
@@ -326,14 +280,11 @@ body {
   .req-grid .card:nth-last-child(3) { border-radius:var(--r-xs) var(--r-xs) var(--r-xs) var(--r-xl) !important; }
   .req-grid .card:nth-last-child(2) { border-radius:var(--r-xs) !important; }
   .req-grid .card:nth-last-child(1) { border-radius:var(--r-xs) var(--r-xs) var(--r-xl) var(--r-xs) !important; }
-  
-  /* disclaimer horizontal layout */
   .warn-rows { flex-direction:row; gap:24px; padding:32px 0; }
   .warn-row { flex:1; padding:0; border-bottom:none; border-right:1px solid rgba(242,184,181,.1); padding-right:24px; flex-direction:column; gap:16px; }
   .warn-row:last-child { border-right:none; padding-right:0; }
   .warn-t { font-size:16px; }
 }
-
 @keyframes fadeUp {
   from { opacity:0; transform:translateY(12px); }
   to   { opacity:1; transform:translateY(0); }
@@ -344,7 +295,6 @@ body {
 </style>
 </head>
 <body>
-
 <header class="bar">
   <div class="bar-title">
     <div class="k-logo">
@@ -357,10 +307,7 @@ body {
     <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
   </a>
 </header>
-
 <main class="page">
-
-  <!-- HERO -->
   <section class="hero">
     <div class="hero-eyebrow">
       <span class="ms f s16" aria-hidden="true">science</span>
@@ -384,8 +331,6 @@ body {
       </a>
     </div>
   </section>
-
-  <!-- DISCLAIMER -->
   <div class="sec-label">
     <span class="ms f s16" style="color:var(--p)" aria-hidden="true">warning</span>
     Disclaimer
@@ -412,8 +357,6 @@ body {
       </div>
     </div>
   </div>
-
-  <!-- FEATURES -->
   <div class="sec-label">
     <span class="ms f s16" style="color:var(--p)" aria-hidden="true">auto_awesome</span>
     Key features
@@ -441,8 +384,6 @@ body {
       </div>
     </div>
   </div>
-
-  <!-- REQUIREMENTS -->
   <div class="sec-label">
     <span class="ms f s16" style="color:var(--p)" aria-hidden="true">memory</span>
     System requirements
@@ -479,8 +420,6 @@ body {
       <span class="row-tag t-val">2–3 GB</span>
     </div>
   </div>
-
-  <!-- ROADMAP -->
   <div class="sec-label" id="roadmap">
     <span class="ms f s16" style="color:var(--p)" aria-hidden="true">route</span>
     Roadmap
@@ -527,8 +466,6 @@ body {
       <span class="row-tag t-plan">Planned</span>
     </div>
   </div>
-
-  <!-- LICENSE -->
   <div class="sec-label">
     <span class="ms f s16" style="color:var(--p)" aria-hidden="true">balance</span>
     License
@@ -543,8 +480,6 @@ body {
       <span class="ms s16" aria-hidden="true">open_in_new</span>View
     </a>
   </div>
-
-  <!-- CONTACT -->
   <div class="sec-label">
     <span class="ms f s16" style="color:var(--p)" aria-hidden="true">perm_contact_calendar</span>
     Contact
@@ -566,16 +501,13 @@ body {
       <span class="ms s16" style="color:var(--onsv); margin-right:4px;">open_in_new</span>
     </a>
   </div>
-
   <footer style="margin-top: 48px; text-align: center; font-size: 13px; color: var(--onsv); letter-spacing: 0.2px; line-height: 1.6;">
     <p>© 2026 Acee All Rights Reserved.</p>
     <p style="margin-top: 4px; opacity: 0.8;">Any trademarks or logos used on this site are property of their respective owners.</p>
   </footer>
-
 </main>
 <script>
 document.fonts.ready.then(() => document.body.classList.add("fonts-loaded"));
-
 document.addEventListener('click', function(e) {
   const card = e.target.closest('.card[tabindex="0"]');
   if (card && card.tagName !== 'A') {
@@ -584,7 +516,6 @@ document.addEventListener('click', function(e) {
     let icon = 'info';
     let iconBg = 'var(--pc)';
     let iconColor = 'var(--opc)';
-
     const descMap = {
       'Material 3 Expressive': 'Embraces the latest Material Design 3 guidelines with expressive colors, smooth typography, and refined animations for a modern desktop experience.',
       'Performance first': 'Engineered to be lightweight and responsive, ensuring that the system gets out of your way and prioritizes active application workloads.',
@@ -604,7 +535,6 @@ document.addEventListener('click', function(e) {
       'Built-in apps: Krowser, Terminal, File Manager, Text Editor, Settings': 'Our roadmap includes developing a suite of essential, cohesive graphical user applications tailored specifically for the KydeOS design language.',
       'KydeStore + dedicated APT repository': 'We plan to host a dedicated package repository along with a user-friendly graphical storefront (KydeStore) for discovering and installing software.'
     };
-
     if (card.classList.contains('warn')) {
       title = 'Disclaimer';
       desc = 'Please note that KydeOS is in early development. This means bugs, crashes, and data loss might occur if installed on bare metal. Use virtual machines like QEMU for testing.';
@@ -624,13 +554,11 @@ document.addEventListener('click', function(e) {
       desc = descMap[title] || ((elTag ? elTag.textContent : '') + '. Further details are available in the repository documentation.');
       icon = elIco ? elIco.textContent : 'info';
     }
-    
     if (title) {
       showInfo(title, desc, icon, iconBg, iconColor);
     }
   }
 });
-
 function showInfo(title, desc, icon, iconBg, iconColor) {
   let m = document.getElementById('infoModal');
   if (!m) {
@@ -653,19 +581,16 @@ function showInfo(title, desc, icon, iconBg, iconColor) {
       <div id="modalDesc" style="font-size:15px; color:var(--onsv); line-height:1.6;">Description</div>
     `;
     document.body.appendChild(m);
-    
     m.addEventListener('click', function(e) {
       if(e.target === m) m.close();
     });
   }
-  
   document.getElementById('modalTitle').textContent = title;
   document.getElementById('modalDesc').textContent = desc;
   const ic = document.getElementById('modalIcon');
   ic.style.background = iconBg;
   ic.style.color = iconColor;
   ic.querySelector('.ms').textContent = icon;
-  
   m.showModal();
 }
 </script>
