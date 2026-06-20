@@ -25,129 +25,123 @@
 </header>
 <main class="page">
   <div class="hero">
-    <h1>Privacy Policy</h1>
-    <p><strong>Effective date:</strong> June 20, 2026<br>
-    <strong>Version:</strong> Aurora (1.0)<br>
-    <strong>License:</strong> GNU General Public License v3.0 (GPLv3)<br>
+    <h1>Open Source Licenses</h1>
+    <p><strong>Version:</strong> Aurora (1.0)<br>
     <strong>Source code:</strong> <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></p>
   </div>
   
   <hr>
 
-    <h2>1. Overview</h2>
-  <p>KydeOS is a free, open-source operating system designed and maintained by a single independent developer. This Privacy Policy explains what data KydeOS may collect, how it is used, and what control you have over it.</p>
-  <p>Privacy in KydeOS is opt-in by design. During the initial setup process (OOBE), you are presented with a Privacy & Diagnostics screen where you can individually enable or disable each data collection feature before the system is fully active. Every toggle defaults to off, with the exception of Crash Reports which defaults to on to help identify critical bugs during early development. You can change any of these settings at any time after setup via System Settings.</p>
-  <p>KydeOS has no advertising business model, no investors requiring growth metrics, and no commercial interest in your data. This project exists as a personal, open-source endeavor.</p>
+  <h2>1. KydeOS Primary License</h2>
+  <p>KydeOS is licensed under the GNU General Public License v3.0 (GPLv3).</p>
+  <p>Copyright (C) 2026 r1nzd</p>
+  <p>This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.</p>
+  <p>This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.</p>
+  <p>You should have received a copy of the GNU General Public License along with this program. If not, see <a href="https://www.gnu.org/licenses/" target="_blank">https://www.gnu.org/licenses/</a>.</p>
 
   <hr>
+
+  <h2>2. What GPLv3 Means for You</h2>
+  <p><strong>You are free to:</strong></p>
+  <ul>
+    <li>Run KydeOS for any purpose, on any machine, without restriction.</li>
+    <li>Study the source code and learn how the system works.</li>
+    <li>Modify KydeOS to suit your own needs.</li>
+    <li>Distribute verbatim copies of KydeOS to anyone.</li>
+    <li>Distribute your modified versions of KydeOS to anyone.</li>
+  </ul>
+  <p><strong>Under the following conditions:</strong></p>
+  <ul>
+    <li>Any modified version you distribute must also be licensed under GPLv3.</li>
+    <li>You must make the corresponding source code available to anyone who receives your distribution.</li>
+    <li>You must include a copy of the GPLv3 license with any distribution.</li>
+    <li>You must clearly mark any modified files as changed, including a relevant date.</li>
+    <li>You may not impose additional restrictions on the rights granted by this license.</li>
+  </ul>
+
+  <hr>
+
+  <h2>3. Third-Party Components &amp; Dependencies</h2>
+  <p>KydeOS is built on top of Debian Bookworm Stable and incorporates a number of third-party open-source components. Each component is governed by its own respective license. The inclusion of these components in KydeOS does not alter their original license terms.</p>
   
-  <h2>2. Privacy & Diagnostics Settings</h2>
-  <p>During setup, you are given direct control over the following three settings. None of these features transmit any data without your knowledge.</p>
+  <p><strong>Debian GNU/Linux</strong><br>
+  License: Various (per-package). The Debian distribution as a whole is a collection of software packages each carrying their own license. See <a href="https://www.debian.org/legal/" target="_blank">https://www.debian.org/legal/</a> for details.</p>
+  
+  <p><strong>Linux Kernel</strong><br>
+  License: GNU General Public License v2.0 with the Linux syscall note exception.<br>
+  The Linux kernel is not relicensed under GPLv3 by its inclusion in KydeOS. User-space components of KydeOS interact with the kernel through the standard syscall interface, which does not create a derivative work relationship under the kernel's license terms.<br>
+  See <a href="https://www.kernel.org/legal.html" target="_blank">https://www.kernel.org/legal.html</a> for details.</p>
+  
+  <p><strong>systemd</strong><br>
+  License: GNU Lesser General Public License v2.1 (LGPLv2.1) for the core libraries; GNU General Public License v2.0 for certain utilities.<br>
+  See <a href="https://github.com/systemd/systemd/blob/main/LICENSE.md" target="_blank">https://github.com/systemd/systemd/blob/main/LICENSE.md</a> for details.</p>
 
-  <h3>2.1 Location Services</h3>
-  <p><strong>Default state:</strong> OFF</p>
-  <p>When enabled, Location Services allows KydeOS and supported applications to access an estimated location derived from your network or hardware. This is used to assist apps that benefit from location context, such as weather, maps, and automatic time zone detection.</p>
-  <p>When disabled, no location data of any kind is collected, accessed, or transmitted by the system. Individual applications you install may have their own location permission requests, which are handled separately and are not governed by this system-level toggle.</p>
-  <p>You can change this setting at any time in System Settings.</p>
+  <p><strong>Wayland &amp; XWayland</strong><br>
+  License: MIT License.<br>
+  Wayland is a display server protocol and its reference implementation is distributed under the MIT License.<br>
+  See <a href="https://wayland.freedesktop.org/" target="_blank">https://wayland.freedesktop.org/</a> for details.</p>
 
-  <h3>2.2 Telemetry & Usage Data</h3>
-  <p><strong>Default state:</strong> OFF</p>
-  <p>When enabled, KydeOS may collect anonymous, aggregated data about how the system is used. This may include general information such as which system features are accessed, session durations, or performance metrics. The purpose of this data is strictly to understand how KydeOS is used in practice and to guide future development decisions.</p>
-  <p>This data is:</p>
-  <ul>
-    <li>Anonymous — it is not linked to your identity, account, or any personally identifiable information</li>
-    <li>Aggregated — individual sessions are not stored or analyzed in isolation</li>
-    <li>Never sold or shared with any third party</li>
-    <li>Never used for advertising purposes of any kind</li>
-  </ul>
-  <p>When disabled, no usage data or telemetry of any kind is collected or transmitted by the system.</p>
-  <p>You can change this setting at any time in System Settings.</p>
+  <p><strong>Material Symbols (Icons)</strong><br>
+  License: Apache License 2.0.<br>
+  Material Symbols are provided by Google and used under the Apache 2.0 License.<br>
+  See <a href="https://github.com/google/material-design-icons/blob/master/LICENSE" target="_blank">https://github.com/google/material-design-icons/blob/master/LICENSE</a> for details.</p>
 
-  <h3>2.3 Crash Reports</h3>
-  <p><strong>Default state:</strong> ON</p>
-  <p>When enabled, KydeOS automatically collects and transmits error logs when the system or a core system component crashes. These reports contain technical diagnostic information such as stack traces, system state at the time of the crash, kernel version, and hardware architecture. Crash reports help the developer identify and fix critical bugs, especially during the early Aurora development phase.</p>
-  <p>Crash reports do not contain:</p>
-  <ul>
-    <li>Your name, email address, or any account information</li>
-    <li>The contents of your files, documents, or clipboard</li>
-    <li>Your browsing history or application usage</li>
-    <li>Any personally identifiable information</li>
-  </ul>
-  <p>When disabled, no crash or error data is ever transmitted from your device.</p>
-  <p>You can change this setting at any time in System Settings.</p>
+  <p><strong>Google Sans Flex &amp; Google Sans Text (Fonts)</strong><br>
+  License: These fonts are provided by Google via Google Fonts. Usage is subject to the applicable font license terms as specified by Google.<br>
+  See <a href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a> for details.</p>
 
-  <hr>
+  <p><strong>Flatpak</strong><br>
+  License: GNU Lesser General Public License v2.1 (LGPLv2.1).<br>
+  See <a href="https://github.com/flatpak/flatpak/blob/main/COPYING" target="_blank">https://github.com/flatpak/flatpak/blob/main/COPYING</a> for details.</p>
 
-  <h2>3. Data We Never Collect</h2>
-  <p>Regardless of your Privacy & Diagnostics settings, KydeOS never collects the following under any circumstances:</p>
-  <ul>
-    <li>Names, email addresses, or personally identifiable information during normal OS operation</li>
-    <li>The contents of your files, documents, photos, or any stored data</li>
-    <li>Keyboard input or clipboard contents</li>
-    <li>Browsing history or Krowser activity</li>
-    <li>Hardware serial numbers or unique device identifiers used for tracking</li>
-    <li>Location data when Location Services is disabled</li>
-    <li>Any data sold to or shared with advertisers, data brokers, or commercial third parties</li>
-  </ul>
+  <p><strong>AppImage</strong><br>
+  License: MIT License.<br>
+  See <a href="https://github.com/AppImage/AppImageKit/blob/master/LICENSE" target="_blank">https://github.com/AppImage/AppImageKit/blob/master/LICENSE</a> for details.</p>
+
+  <p><strong>QEMU (used in development and testing)</strong><br>
+  License: GNU General Public License v2.0, with components under MIT and BSD licenses.<br>
+  QEMU is used exclusively as a development and testing tool and is not distributed as part of KydeOS.<br>
+  See <a href="https://www.qemu.org/license/" target="_blank">https://www.qemu.org/license/</a> for details.</p>
 
   <hr>
 
-  <h2>4. Krowser</h2>
-  <p>Krowser is the first-party browser bundled with KydeOS. When you browse the web, Krowser connects to the websites you visit — those websites operate under their own privacy policies. Krowser does not report your browsing history, visited URLs, or search queries back to the KydeOS developer in any form, regardless of your Privacy & Diagnostics settings.</p>
+  <h2>4. KydeShell</h2>
+  <p>KydeShell is the custom desktop shell developed specifically for KydeOS, written in Rust. KydeShell is an original work and is licensed under the GNU General Public License v3.0 as part of the KydeOS project.</p>
+  <p>Copyright (C) 2026 r1nzd</p>
 
   <hr>
 
-  <h2>5. KydeStore & Developer Program</h2>
-  <p>KydeStore is the native software center in KydeOS. An alpha developer program is available, allowing early community members to register as testers directly inside KydeStore. If you register, the information you voluntarily submit is used solely for managing the program and is never shared with third parties.</p>
+  <h2>5. Krowser</h2>
+  <p>Krowser is the first-party browser developed by the KydeOS developer and bundled with KydeOS. Krowser is an original work and is licensed under the GNU General Public License v3.0 as part of the KydeOS project.</p>
+  <p>Copyright (C) 2026 r1nzd</p>
 
   <hr>
 
-  <h2>6. Third-Party Applications</h2>
-  <p>Applications installed via .deb, Flatpak, or AppImage are independent software with their own developers and privacy practices. KydeOS has no control over or responsibility for the data practices of third-party applications. Consult each application's privacy policy individually.</p>
+  <h2>6. KydeStore</h2>
+  <p>KydeStore is the native software center developed for KydeOS. KydeStore is an original work and is licensed under the GNU General Public License v3.0 as part of the KydeOS project.</p>
+  <p>Copyright (C) 2026 r1nzd</p>
+  <p>Software distributed through KydeStore is provided by independent developers and carries its own respective license terms. KydeOS takes no responsibility for the licensing compliance of third-party software distributed via KydeStore.</p>
 
   <hr>
 
-  <h2>7. System Update Checks</h2>
-  <p>When KydeOS checks for available updates, a standard network request is made to the update server. Your IP address is exposed to that server as an unavoidable consequence of internet networking. No additional data is transmitted alongside this request.</p>
+  <h2>7. Rust Standard Library &amp; Toolchain</h2>
+  <p>KydeShell is written in Rust. The Rust standard library is dual-licensed under the MIT License and the Apache License 2.0. The Rust compiler and toolchain are used exclusively during development and are not distributed as part of KydeOS.<br>
+  See <a href="https://github.com/rust-lang/rust/blob/master/LICENSE-MIT" target="_blank">https://github.com/rust-lang/rust/blob/master/LICENSE-MIT</a> and <a href="https://github.com/rust-lang/rust/blob/master/LICENSE-APACHE" target="_blank">https://github.com/rust-lang/rust/blob/master/LICENSE-APACHE</a> for details.</p>
 
   <hr>
 
-  <h2>8. Open Source as a Privacy Guarantee</h2>
-  <p>KydeOS is fully open source under the GPLv3. Every component of the system is publicly auditable at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a>. You are never required to take our word for anything stated in this policy — you can verify it directly in the source code. If you discover any undisclosed data collection or network transmission in KydeOS, please report it immediately as a privacy issue on GitHub.</p>
+  <h2>8. No Endorsement</h2>
+  <p>The inclusion of any third-party component, library, or tool in KydeOS does not imply endorsement by or affiliation with the authors or maintainers of those projects. All trademarks referenced herein are the property of their respective owners.</p>
 
   <hr>
 
-  <h2>9. Security</h2>
-  <p>KydeOS includes the following system-level security features:</p>
-  <ul>
-    <li>LUKS2 full-disk encryption to protect data stored on your device at rest</li>
-    <li>AppArmor and SELinux sandboxing to isolate applications</li>
-    <li>Minimal default service configuration to reduce attack surface</li>
-    <li>Security patches from Debian Stable upstream, with critical fixes applied out-of-cycle when necessary</li>
-  </ul>
+  <h2>9. Reporting License Issues</h2>
+  <p>If you believe any component of KydeOS is being used in violation of its applicable license, please report it via GitHub at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a> so the issue can be investigated and resolved promptly.</p>
 
   <hr>
 
-  <h2>10. Your Rights</h2>
-  <p>If you participated in the KydeStore developer program or any associated service, you have the right to request access to, correction of, or deletion of any personal data held about you. Contact the developer via GitHub at <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a>.</p>
-
-  <hr>
-
-  <h2>11. Children's Privacy</h2>
-  <p>KydeOS does not knowingly collect personal data from children under the age of 13. If you believe a minor has submitted personal information through KydeStore or any associated service, contact the developer via GitHub so it can be promptly removed.</p>
-
-  <hr>
-
-  <h2>12. Changes to This Policy</h2>
-  <p>All changes to this policy will be committed to the public GitHub repository with a full auditable history. The effective date at the top of this document will be updated with each revision. Continued use of KydeOS after changes are published constitutes acceptance of the updated policy.</p>
-
-  <hr>
-
-  <h2>13. Contact</h2>
-  <p>For privacy-related questions, concerns, or data requests:</p>
-  <ul>
-    <li>GitHub: <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></li>
-  </ul>
+  <h2>10. Full License Text</h2>
+  <p>The full text of the GNU General Public License v3.0 is included in the LICENSE file at the root of the KydeOS repository and is available online at <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">https://www.gnu.org/licenses/gpl-3.0.html</a>.</p>
 
   <hr>
 
@@ -156,6 +150,11 @@
   <footer style="margin-top: 48px; text-align: center; font-size: 13px; color: var(--onsv); letter-spacing: 0.2px; line-height: 1.6;">
     <p>© 2026 Acee All Rights Reserved.</p>
     <p style="margin-top: 4px; opacity: 0.8;">Any trademarks or logos used on this site are property of their respective owners.</p>
+    <p style="margin-top: 12px; display: flex; justify-content: center; gap: 16px;">
+      <a href="privacy.html" style="color:var(--ons);text-decoration:underline;">Privacy Policy</a>
+      <a href="eula.html" style="color:var(--ons);text-decoration:underline;">EULA</a>
+      <a href="licenses.html" style="color:var(--ons);text-decoration:underline;">Licenses</a>
+    </p>
   </footer>
 </main>
 <script>
