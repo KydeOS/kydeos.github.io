@@ -6,7 +6,7 @@
 <title>KydeOS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&family=Google+Sans+Text:ital,wght@0,400;0,500;0,700;1,400&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=block" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -29,7 +29,7 @@ html { scroll-behavior: smooth; }
 @font-face { font-family: "Material Symbols Rounded"; }
 body.fonts-loaded .ms { opacity: 1; }
 body {
-  font-family:'Google Sans Flex','Google Sans',sans-serif;
+  font-family:'Google Sans Flex', sans-serif;
   font-size:14px; line-height:1.5;
   -webkit-font-smoothing:antialiased;
   color:var(--ons);
@@ -47,7 +47,7 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   user-select:none;
-  font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 48;
+  font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48;
   flex-shrink:0;
 }
 .ms.f{font-variation-settings:'FILL' 1,'wght' 400,'GRAD' 0,'opsz' 48}
@@ -62,12 +62,12 @@ body {
 }
 .bar-title {
   display:flex; align-items:center;
-  font-family:'Outfit','Google Sans Flex',sans-serif;
-  font-size:22px; font-weight:500;
+  font-family:'Google Sans Flex', sans-serif;
+  font-size:22px; font-weight: 400;
   color:var(--ons); flex:1;
 }
 .k-logo {
-  position:relative; width:24.2px; height:24.2px; margin-right:10px;
+  position:relative; width:22px; height:22px; margin-right:10px;
   display:flex; flex-shrink:0;
 }
 .k-logo-tl {
@@ -76,7 +76,7 @@ body {
   box-sizing:border-box;
 }
 .k-logo-br {
-  position:absolute; top:12.2px; left:12.2px; width:12px; height:12px;
+  position:absolute; top:11px; left:11px; width:12px; height:12px;
   background:var(--ons); border-radius:3px 3px 100% 3px;
 }
 .bar-btn {
@@ -91,15 +91,15 @@ body {
 .hero-eyebrow {
   display:inline-flex; align-items:center; gap:6px;
   background:var(--sc); color:var(--osc);
-  font-size:11px; font-weight:500; letter-spacing:.5px;
+  font-size:11px; font-weight: 400; letter-spacing:.5px;
   padding:6px 14px 6px 10px;
   border-radius:var(--r-full);
   margin-bottom:24px;
 }
 .hero-display {
-  font-family:'Outfit','Google Sans Flex',sans-serif;
+  font-family:'Google Sans Flex', sans-serif;
   font-size:clamp(50px, 12vw, 104px);
-  font-weight:500;
+  font-weight: 550;
   line-height:1;
   letter-spacing:0px;
   color:var(--ons);
@@ -121,7 +121,7 @@ body {
   display:inline-flex; align-items:center; gap:8px;
   height:40px; padding:0 20px;
   font-family:'Google Sans Flex',sans-serif;
-  font-size:14px; font-weight:500; letter-spacing:.1px;
+  font-size:14px; font-weight: 400; letter-spacing:.1px;
   text-decoration:none; border:none; cursor:pointer;
   transition:background 150ms var(--ease), filter 150ms var(--ease);
 }
@@ -144,14 +144,14 @@ body {
   border:1px solid var(--out);
   background:transparent; color:var(--p);
   font-family:'Google Sans Flex',sans-serif;
-  font-size:14px; font-weight:500; letter-spacing:.1px;
+  font-size:14px; font-weight: 400; letter-spacing:.1px;
   text-decoration:none; cursor:pointer;
   transition:background 150ms var(--ease);
 }
 .btn-outlined:hover { background:rgba(208,188,255,.08); }
 .sec-label {
   display:flex; align-items:center; gap:8px;
-  font-size:11px; font-weight:600;
+  font-size:11px; font-weight: 400;
   letter-spacing:1.5px; text-transform:uppercase;
   color:var(--onsv);
   margin:36px 0 8px;
@@ -181,7 +181,7 @@ body {
   color:var(--e); flex-shrink:0;
   margin-top:2px;
 }
-.warn-t { font-size:18px; font-weight:600; color:var(--e); margin-bottom:4px; font-family:'Google Sans Flex','Google Sans',sans-serif; }
+.warn-t { font-size:18px; font-weight: 400; color:var(--e); margin-bottom:4px; font-family:'Google Sans Flex', sans-serif; }
 .warn-d { font-size:15px; color:rgba(242,184,181,.85); line-height:1.5; font-weight:400; }
 .feat {
   display:flex; align-items:flex-start; gap:16px;
@@ -199,8 +199,8 @@ body {
 .is{background:var(--pc);color:var(--opc)}
 .it{background:var(--pc);color:var(--opc)}
 .feat-name {
-  font-family:'Google Sans Flex','Google Sans',sans-serif;
-  font-size:15px; font-weight:600; color:var(--ons); margin-bottom:3px;
+  font-family:'Google Sans Flex', sans-serif;
+  font-size:15px; font-weight: 400; color:var(--ons); margin-bottom:3px;
 }
 .feat-desc { font-size:13px; color:var(--onsv); line-height:1.55; }
 .row-card {
@@ -214,10 +214,10 @@ body {
   width:40px; height:40px; border-radius:50%;
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
 }
-.row-lbl { flex:1; font-size:14px; font-weight:500; color:var(--ons); }
+.row-lbl { flex:1; font-size:14px; font-weight: 400; color:var(--ons); }
 .row-card.done .row-lbl { color:var(--onsv); }
 .row-tag {
-  font-size:11px; font-weight:600; letter-spacing:.4px;
+  font-size:11px; font-weight: 400; letter-spacing:.4px;
   padding:4px 10px; border-radius:var(--r-full); white-space:nowrap;
 }
 .t-done { background:var(--pc); color:var(--opc); }
@@ -234,91 +234,91 @@ body {
   display:flex; align-items:center; justify-content:center; flex-shrink:0;
 }
 .lic-name {
-  font-family:'Google Sans Flex','Google Sans',sans-serif;
-  font-size:15px; font-weight:600; color:var(--opc); margin-bottom:3px;
+  font-family:'Google Sans Flex', sans-serif;
+  font-size:15px; font-weight: 400; color:var(--opc); margin-bottom:3px;
 }
 .lic-sub { font-size:12px; color:rgba(234,221,255,.7); flex:1; }
 .btn-lic {
   display:inline-flex; align-items:center; gap:6px;
   background:rgba(56,30,114,.25); color:var(--opc);
   height:36px; padding:0 16px; border-radius:var(--r-full);
-  font-family:'Google Sans Flex',sans-serif; font-size:13px; font-weight:500;
+  font-family:'Google Sans Flex',sans-serif; font-size:13px; font-weight: 400;
   text-decoration:none; flex-shrink:0;
   transition:background 150ms var(--ease);
 }
 .btn-lic:hover { background:rgba(56,30,114,.4); }
 
 /* Sub-views plain text styling (Privacy, EULA, Licenses) */
-#view-privacy, #view-eula, #view-licenses {
+#view-privacy, #view-eula, #view-licenses, #view-tos {
   padding-bottom: 80px;
 }
-#view-privacy .hero h1, #view-eula .hero h1, #view-licenses .hero h1 {
-  font-family: 'Outfit', 'Google Sans Flex', sans-serif;
+#view-privacy .hero h1, #view-eula .hero h1, #view-licenses .hero h1, #view-tos .hero h1 {
+  font-family: 'Google Sans Flex', sans-serif;
   font-size: clamp(36px, 8vw, 64px);
-  font-weight: 500;
+  font-weight: 550;
   color: var(--ons);
   margin-bottom: 16px;
   line-height: 1.1;
 }
-#view-privacy .hero p, #view-eula .hero p, #view-licenses .hero p {
+#view-privacy .hero p, #view-eula .hero p, #view-licenses .hero p, #view-tos .hero p {
   font-size: 16px;
   color: var(--onsv);
   line-height: 1.65;
 }
-#view-privacy hr, #view-eula hr, #view-licenses hr {
+#view-privacy hr, #view-eula hr, #view-licenses hr, #view-tos hr {
   border: none;
   border-top: 1px solid var(--c4);
   margin: 32px 0;
 }
-#view-privacy h2, #view-eula h2, #view-licenses h2 {
-  font-family: 'Outfit', 'Google Sans Flex', sans-serif;
+#view-privacy h2, #view-eula h2, #view-licenses h2, #view-tos h2 {
+  font-family: 'Google Sans Flex', sans-serif;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--ons);
   margin-top: 48px;
   margin-bottom: 24px;
 }
-#view-privacy h3, #view-eula h3, #view-licenses h3 {
+#view-privacy h3, #view-eula h3, #view-licenses h3, #view-tos h3 {
   font-family: 'Google Sans Flex', sans-serif;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--ons);
   margin-top: 32px;
   margin-bottom: 12px;
 }
-#view-privacy p, #view-eula p, #view-licenses p {
+#view-privacy p, #view-eula p, #view-licenses p, #view-tos p {
   font-size: 15px;
   color: var(--onsv);
   line-height: 1.6;
   margin-bottom: 16px;
 }
-#view-privacy ul, #view-eula ul, #view-licenses ul {
+#view-privacy ul, #view-eula ul, #view-licenses ul, #view-tos ul {
   font-size: 15px;
   color: var(--onsv);
   line-height: 1.6;
   margin-bottom: 16px;
   padding-left: 24px;
 }
-#view-privacy li, #view-eula li, #view-licenses li {
+#view-privacy li, #view-eula li, #view-licenses li, #view-tos li {
   margin-bottom: 8px;
   padding-left: 4px;
 }
-#view-privacy li::marker, #view-eula li::marker, #view-licenses li::marker {
+#view-privacy li::marker, #view-eula li::marker, #view-licenses li::marker, #view-tos li::marker {
   color: var(--p);
 }
-#view-privacy a, #view-eula a, #view-licenses a {
+#view-privacy a, #view-eula a, #view-licenses a, #view-tos a {
   color: var(--p);
   text-decoration: none;
   border-bottom: 1px solid rgba(208, 188, 255, 0.3);
   transition: all 150ms var(--ease);
 }
-#view-privacy a:hover, #view-eula a:hover, #view-licenses a:hover {
+#view-privacy a:hover, #view-eula a:hover, #view-licenses a:hover, #view-tos a:hover {
   color: var(--opc);
   border-bottom-color: var(--opc);
 }
-#view-privacy strong, #view-eula strong, #view-licenses strong {
+#view-privacy strong, #view-eula strong, #view-licenses strong, #view-tos strong {
   color: var(--ons);
-  font-weight: 600;
+  font-weight: 400;
 }
 
 @media (min-width:720px) {
@@ -578,25 +578,17 @@ body {
       <span class="ms s16" style="color:var(--onsv); margin-right:4px;">open_in_new</span>
     </a>
   </div>
-  <footer style="margin-top: 48px; text-align: center; font-size: 13px; color: var(--onsv); letter-spacing: 0.2px; line-height: 1.6;">
-    <p>© 2026 Acee All Rights Reserved.</p>
-    <p style="margin-top: 4px; opacity: 0.8;">Any trademarks or logos used on this site are property of their respective owners.</p>
-    <p style="margin-top: 12px; display: flex; justify-content: center; gap: 16px;">
-      <a href="#privacy" style="color:var(--ons);text-decoration:underline;">Privacy Policy</a>
-      <a href="#eula" style="color:var(--ons);text-decoration:underline;">EULA</a>
-      <a href="#licenses" style="color:var(--ons);text-decoration:underline;">Licenses</a>
-    </p>
-  </footer>
+  
 
   </div>
   <div id="view-privacy" style="display: none;">
     
   <div class="hero">
     <h1>Privacy Policy</h1>
-    <p><strong>Effective date:</strong> June 20, 2026<br>
-    <strong>Version:</strong> Aurora (1.0)<br>
-    <strong>License:</strong> GNU General Public License v3.0 (GPLv3)<br>
-    <strong>Source code:</strong> <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></p>
+    <p><strong style="font-weight: 400;">Effective date:</strong> June 20, 2026<br>
+    <strong style="font-weight: 400;">Version:</strong> Aurora (1.0)<br>
+    <strong style="font-weight: 400;">License:</strong> GNU General Public License v3.0 (GPLv3)<br>
+    <strong style="font-weight: 400;">Source code:</strong> <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></p>
   </div>
   
   <hr>
@@ -612,13 +604,13 @@ body {
   <p>During setup, you are given direct control over the following three settings. None of these features transmit any data without your knowledge.</p>
 
   <h3>2.1 Location Services</h3>
-  <p><strong>Default state:</strong> OFF</p>
+  <p><strong style="font-weight: 400;">Default state:</strong> OFF</p>
   <p>When enabled, Location Services allows KydeOS and supported applications to access an estimated location derived from your network or hardware. This is used to assist apps that benefit from location context, such as weather, maps, and automatic time zone detection.</p>
   <p>When disabled, no location data of any kind is collected, accessed, or transmitted by the system. Individual applications you install may have their own location permission requests, which are handled separately and are not governed by this system-level toggle.</p>
   <p>You can change this setting at any time in System Settings.</p>
 
   <h3>2.2 Telemetry & Usage Data</h3>
-  <p><strong>Default state:</strong> OFF</p>
+  <p><strong style="font-weight: 400;">Default state:</strong> OFF</p>
   <p>When enabled, KydeOS may collect anonymous, aggregated data about how the system is used. This may include general information such as which system features are accessed, session durations, or performance metrics. The purpose of this data is strictly to understand how KydeOS is used in practice and to guide future development decisions.</p>
   <p>This data is:</p>
   <ul>
@@ -631,7 +623,7 @@ body {
   <p>You can change this setting at any time in System Settings.</p>
 
   <h3>2.3 Crash Reports</h3>
-  <p><strong>Default state:</strong> ON</p>
+  <p><strong style="font-weight: 400;">Default state:</strong> ON</p>
   <p>When enabled, KydeOS automatically collects and transmits error logs when the system or a core system component crashes. These reports contain technical diagnostic information such as stack traces, system state at the time of the crash, kernel version, and hardware architecture. Crash reports help the developer identify and fix critical bugs, especially during the early Aurora development phase.</p>
   <p>Crash reports do not contain:</p>
   <ul>
@@ -727,10 +719,10 @@ body {
     
   <div class="hero">
     <h1>End User License Agreement (EULA)</h1>
-    <p><strong>Effective date:</strong> June 20, 2026<br>
-    <strong>Version:</strong> Aurora (1.0)<br>
-    <strong>License:</strong> GNU General Public License v3.0 (GPLv3)<br>
-    <strong>Source code:</strong> <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></p>
+    <p><strong style="font-weight: 400;">Effective date:</strong> June 20, 2026<br>
+    <strong style="font-weight: 400;">Version:</strong> Aurora (1.0)<br>
+    <strong style="font-weight: 400;">License:</strong> GNU General Public License v3.0 (GPLv3)<br>
+    <strong style="font-weight: 400;">Source code:</strong> <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></p>
   </div>
   
   <hr>
@@ -748,10 +740,10 @@ body {
   <h2>3. License Grant</h2>
   <p>KydeOS is licensed under the GNU General Public License v3.0 (GPLv3). Under this license, you are granted the following rights:</p>
   <ul>
-    <li><strong>Run:</strong> You may run KydeOS for any purpose, on any number of machines.</li>
-    <li><strong>Study:</strong> You may examine the source code to understand how the system works.</li>
-    <li><strong>Modify:</strong> You may modify KydeOS for personal use or for distribution.</li>
-    <li><strong>Distribute:</strong> You may distribute verbatim or modified copies of KydeOS, provided you do so under the same GPLv3 license and make the source code available to recipients.</li>
+    <li><strong style="font-weight: 400;">Run:</strong> You may run KydeOS for any purpose, on any number of machines.</li>
+    <li><strong style="font-weight: 400;">Study:</strong> You may examine the source code to understand how the system works.</li>
+    <li><strong style="font-weight: 400;">Modify:</strong> You may modify KydeOS for personal use or for distribution.</li>
+    <li><strong style="font-weight: 400;">Distribute:</strong> You may distribute verbatim or modified copies of KydeOS, provided you do so under the same GPLv3 license and make the source code available to recipients.</li>
   </ul>
   <p>These rights are perpetual, worldwide, royalty-free, and irrevocable as long as you comply with the terms of the GPLv3. The full text of the GPLv3 is included in the LICENSE file distributed with KydeOS and is available at <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">https://www.gnu.org/licenses/gpl-3.0.html</a>.</p>
 
@@ -856,8 +848,8 @@ body {
     
   <div class="hero">
     <h1>Open Source Licenses</h1>
-    <p><strong>Version:</strong> Aurora (1.0)<br>
-    <strong>Source code:</strong> <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></p>
+    <p><strong style="font-weight: 400;">Version:</strong> Aurora (1.0)<br>
+    <strong style="font-weight: 400;">Source code:</strong> <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></p>
   </div>
   
   <hr>
@@ -872,7 +864,7 @@ body {
   <hr>
 
   <h2>2. What GPLv3 Means for You</h2>
-  <p><strong>You are free to:</strong></p>
+  <p><strong style="font-weight: 400;">You are free to:</strong></p>
   <ul>
     <li>Run KydeOS for any purpose, on any machine, without restriction.</li>
     <li>Study the source code and learn how the system works.</li>
@@ -880,7 +872,7 @@ body {
     <li>Distribute verbatim copies of KydeOS to anyone.</li>
     <li>Distribute your modified versions of KydeOS to anyone.</li>
   </ul>
-  <p><strong>Under the following conditions:</strong></p>
+  <p><strong style="font-weight: 400;">Under the following conditions:</strong></p>
   <ul>
     <li>Any modified version you distribute must also be licensed under GPLv3.</li>
     <li>You must make the corresponding source code available to anyone who receives your distribution.</li>
@@ -894,41 +886,41 @@ body {
   <h2>3. Third-Party Components &amp; Dependencies</h2>
   <p>KydeOS is built on top of Debian Bookworm Stable and incorporates a number of third-party open-source components. Each component is governed by its own respective license. The inclusion of these components in KydeOS does not alter their original license terms.</p>
   
-  <p><strong>Debian GNU/Linux</strong><br>
+  <p><strong style="font-weight: 400;">Debian GNU/Linux</strong><br>
   License: Various (per-package). The Debian distribution as a whole is a collection of software packages each carrying their own license. See <a href="https://www.debian.org/legal/" target="_blank">https://www.debian.org/legal/</a> for details.</p>
   
-  <p><strong>Linux Kernel</strong><br>
+  <p><strong style="font-weight: 400;">Linux Kernel</strong><br>
   License: GNU General Public License v2.0 with the Linux syscall note exception.<br>
   The Linux kernel is not relicensed under GPLv3 by its inclusion in KydeOS. User-space components of KydeOS interact with the kernel through the standard syscall interface, which does not create a derivative work relationship under the kernel's license terms.<br>
   See <a href="https://www.kernel.org/legal.html" target="_blank">https://www.kernel.org/legal.html</a> for details.</p>
   
-  <p><strong>systemd</strong><br>
+  <p><strong style="font-weight: 400;">systemd</strong><br>
   License: GNU Lesser General Public License v2.1 (LGPLv2.1) for the core libraries; GNU General Public License v2.0 for certain utilities.<br>
   See <a href="https://github.com/systemd/systemd/blob/main/LICENSE.md" target="_blank">https://github.com/systemd/systemd/blob/main/LICENSE.md</a> for details.</p>
 
-  <p><strong>Wayland &amp; XWayland</strong><br>
+  <p><strong style="font-weight: 400;">Wayland &amp; XWayland</strong><br>
   License: MIT License.<br>
   Wayland is a display server protocol and its reference implementation is distributed under the MIT License.<br>
   See <a href="https://wayland.freedesktop.org/" target="_blank">https://wayland.freedesktop.org/</a> for details.</p>
 
-  <p><strong>Material Symbols (Icons)</strong><br>
+  <p><strong style="font-weight: 400;">Material Symbols (Icons)</strong><br>
   License: Apache License 2.0.<br>
   Material Symbols are provided by Google and used under the Apache 2.0 License.<br>
   See <a href="https://github.com/google/material-design-icons/blob/master/LICENSE" target="_blank">https://github.com/google/material-design-icons/blob/master/LICENSE</a> for details.</p>
 
-  <p><strong>Google Sans Flex &amp; Google Sans Text (Fonts)</strong><br>
+  <p><strong style="font-weight: 400;">Google Sans Flex &amp; Google Sans Text (Fonts)</strong><br>
   License: These fonts are provided by Google via Google Fonts. Usage is subject to the applicable font license terms as specified by Google.<br>
   See <a href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a> for details.</p>
 
-  <p><strong>Flatpak</strong><br>
+  <p><strong style="font-weight: 400;">Flatpak</strong><br>
   License: GNU Lesser General Public License v2.1 (LGPLv2.1).<br>
   See <a href="https://github.com/flatpak/flatpak/blob/main/COPYING" target="_blank">https://github.com/flatpak/flatpak/blob/main/COPYING</a> for details.</p>
 
-  <p><strong>AppImage</strong><br>
+  <p><strong style="font-weight: 400;">AppImage</strong><br>
   License: MIT License.<br>
   See <a href="https://github.com/AppImage/AppImageKit/blob/master/LICENSE" target="_blank">https://github.com/AppImage/AppImageKit/blob/master/LICENSE</a> for details.</p>
 
-  <p><strong>QEMU (used in development and testing)</strong><br>
+  <p><strong style="font-weight: 400;">QEMU (used in development and testing)</strong><br>
   License: GNU General Public License v2.0, with components under MIT and BSD licenses.<br>
   QEMU is used exclusively as a development and testing tool and is not distributed as part of KydeOS.<br>
   See <a href="https://www.qemu.org/license/" target="_blank">https://www.qemu.org/license/</a> for details.</p>
@@ -980,6 +972,219 @@ body {
   
 
   </div>
+
+
+  <div id="view-tos" style="display: none;">
+  <div class="hero">
+    <h1>KydeOS</h1>
+    <p>A personal, experimental operating system built from the ground up on top of Debian Stable. KydeOS combines the rock-solid reliability of enterprise-grade Linux with a fully custom Material 3 Expressive user interface — lightweight, modern, and entirely open source. This project is designed, built, and maintained by a single independent developer with no corporate backing, no investors, and no commercial agenda.</p>
+    <p style="margin-top:24px;">
+    <strong style="font-weight: 400;">Source code:</strong> <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a><br>
+    <strong style="font-weight: 400;">License:</strong> GNU General Public License v3.0 (GPLv3)<br>
+    <strong style="font-weight: 400;">Current version:</strong> Aurora (1.0)<br>
+    <strong style="font-weight: 400;">Status:</strong> Early development — not ready for daily use</p>
+  </div>
+  
+  <hr>
+
+  <h2>Important Disclaimer</h2>
+  <p><strong style="font-weight: 400;">USE AT YOUR OWN RISK.</strong></p>
+  <p>KydeOS is an experimental personal project in active early development. No stability, reliability, or fitness guarantees of any kind are made or implied.</p>
+  <ul>
+    <li><strong style="font-weight: 400;">No Warranty:</strong> This operating system is provided strictly "as is", without warranty of any kind, either expressed or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement. The entire risk as to the quality and performance of the system rests with you.</li>
+    <li><strong style="font-weight: 400;">Data Loss Risk:</strong> Testing or installing KydeOS on physical hardware carries a real and significant risk of system instability, boot failures, partition corruption, and unrecoverable data loss — including the total loss of any existing operating system and all personal files on the target machine. Always back up every piece of important data before proceeding. No exceptions.</li>
+    <li><strong style="font-weight: 400;">Not for Production:</strong> Do not use KydeOS as your primary, daily-driver, or work-critical operating system at this stage of development. It is not ready for that.</li>
+    <li><strong style="font-weight: 400;">Expect Breaking Changes:</strong> Aurora (1.0) is an alpha-phase build. Features, system configurations, file system structures, and application behavior may change significantly and without prior notice between releases.</li>
+    <li><strong style="font-weight: 400;">Test in a VM First:</strong> You are strongly advised to evaluate KydeOS exclusively within a virtualized environment such as QEMU or VirtualBox before making any attempt at physical hardware installation.</li>
+  </ul>
+
+  <hr>
+
+  <h2>What is KydeOS?</h2>
+  <p>Most Linux distributions fall into one of two camps. On one side you have the polished, user-friendly desktops that ship with years of accumulated bloat, questionable default choices, and telemetry you never asked for. On the other side you have the minimal, highly configurable systems that demand significant time investment before they become livable. KydeOS is an attempt to occupy the space in between — a system that boots fast, stays out of your way, looks genuinely good, and gives you the full power of Debian without making you fight for it.</p>
+  <p>The design language is Material 3 Expressive, applied consistently across every surface of the desktop. The shell is custom-built in Rust. The browser is first-party. The software center is native. Nothing is bolted on as an afterthought.</p>
+  <p>This is a solo project built in spare time. It is open source not as a marketing strategy but because it should be. Every line of code is public, auditable, and yours to study, modify, and redistribute under the GPLv3.</p>
+
+  <hr>
+
+  <h2>Key Features</h2>
+  <h3>Material 3 Expressive UI</h3>
+  <p>The entire desktop experience is built around Google's Material 3 design language in its Expressive variant. This means dynamic color palettes that adapt to system context, fluid surface elevation, shape morphing across component groups, and consistent accessible typography throughout. Window decorations, system dialogs, notifications, the app drawer, the settings panel — everything follows the same design system with no exceptions. There is no mixing of design languages, no legacy GTK widgets slipping through the cracks, no visual inconsistency between system components.</p>
+  
+  <h3>KydeShell</h3>
+  <p>KydeShell is the custom desktop shell developed specifically for KydeOS, written from scratch in Rust. It is not a fork of an existing shell and does not wrap any pre-existing desktop environment. KydeShell handles window management, the taskbar, the system tray, notifications, the application launcher, and workspace management. Being built in Rust means it is memory-safe, fast to start, and has a minimal runtime footprint. KydeShell is deeply integrated with the KydeOS environment in ways that a generic shell cannot be.</p>
+  
+  <h3>Krowser</h3>
+  <p>Krowser is a first-party web browser developed by the KydeOS developer and bundled as the default browsing experience. It is designed to fit visually and functionally within the KydeOS environment rather than being a generic browser dropped in as a placeholder. Krowser does not report browsing history, visited URLs, or usage data back to the developer in any form.</p>
+  
+  <h3>KydeStore</h3>
+  <p>KydeStore is the native software center built into KydeOS. It serves as the primary interface for discovering, installing, and managing applications, themes, and tools curated for the KydeOS environment. KydeStore is not a wrapper around an existing package manager frontend — it is a purpose-built application designed to feel native to the system. An alpha developer program is available, allowing early community members to register as testers directly inside KydeStore.</p>
+  
+  <h3>No bloat, no Snap, no telemetry</h3>
+  <p>KydeOS ships with only what is essential. No Snap packages. No unnecessary background daemons. No opt-out telemetry buried in settings. Privacy & Diagnostics options are presented clearly during the initial setup process and default to off. You choose what the system sends, if anything, before the system is fully active.</p>
+  
+  <h3>Debian Bookworm foundation</h3>
+  <p>KydeOS is built directly on top of Debian Bookworm Stable. This means access to one of the largest, most battle-tested APT package repositories in the Linux ecosystem, long-term security update cadence, excellent hardware support via the Linux LTS kernel, and a proven base that has been in production use across servers and desktops worldwide for decades. Debian's stability is not incidental to KydeOS — it is the foundation everything else is built on.</p>
+  
+  <h3>Flatpak and AppImage support</h3>
+  <p>In addition to native .deb package installation, KydeOS supports Flatpak and AppImage out of the box. Snap is explicitly not supported and is not installed. You install software the way you want to without being forced into a single distribution model.</p>
+  
+  <h3>Wayland-first display</h3>
+  <p>KydeOS uses Wayland as its primary display server. XWayland is available as a fallback layer for legacy applications that have not yet been ported to Wayland-native rendering. This means lower input latency, better display scaling support, and improved security isolation between applications compared to a pure X11 stack.</p>
+  
+  <h3>Full-disk encryption</h3>
+  <p>LUKS2 full-disk encryption is supported out of the box and can be configured during the initial setup process. AppArmor and SELinux sandboxing provide additional isolation at the application level. The default service configuration is intentionally minimal to reduce attack surface.</p>
+  
+  <h3>Broad localization</h3>
+  <p>KydeOS ships with support for 90 or more languages, configurable during the out-of-box experience.</p>
+  
+  <h3>Dual architecture support</h3>
+  <p>KydeOS targets both x86_64 and ARM architectures. Both UEFI and Legacy BIOS boot targets are supported.</p>
+
+  <hr>
+
+  <h2>System Specification</h2>
+  <ul>
+    <li><strong style="font-weight: 400;">Base distribution:</strong> Debian Bookworm (Stable)</li>
+    <li><strong style="font-weight: 400;">Kernel:</strong> Linux LTS, sourced from Debian repositories</li>
+    <li><strong style="font-weight: 400;">Init system:</strong> systemd</li>
+    <li><strong style="font-weight: 400;">Display server:</strong> Wayland (primary), XWayland (fallback)</li>
+    <li><strong style="font-weight: 400;">Desktop shell:</strong> KydeShell, written in Rust</li>
+    <li><strong style="font-weight: 400;">Design language:</strong> Material 3 Expressive</li>
+    <li><strong style="font-weight: 400;">System font:</strong> Google Sans Flex (variable)</li>
+    <li><strong style="font-weight: 400;">Body font:</strong> Google Sans Text</li>
+    <li><strong style="font-weight: 400;">UI icons:</strong> Material Symbols Rounded</li>
+    <li><strong style="font-weight: 400;">Custom icons:</strong> Self-designed icon set</li>
+    <li><strong style="font-weight: 400;">Package formats:</strong> .deb, Flatpak, AppImage</li>
+    <li><strong style="font-weight: 400;">Architectures:</strong> x86_64, ARM</li>
+    <li><strong style="font-weight: 400;">Boot targets:</strong> UEFI, Legacy BIOS</li>
+    <li><strong style="font-weight: 400;">Encryption:</strong> LUKS2 full-disk encryption</li>
+    <li><strong style="font-weight: 400;">Sandboxing:</strong> AppArmor, SELinux</li>
+    <li><strong style="font-weight: 400;">Localization:</strong> 90+ languages</li>
+    <li><strong style="font-weight: 400;">Distribution:</strong> Free of charge</li>
+    <li><strong style="font-weight: 400;">License:</strong> GPLv3</li>
+  </ul>
+  <p><strong style="font-weight: 400;">Performance targets for Aurora (1.0):</strong></p>
+  <ul>
+    <li>Idle RAM usage: approximately 300 MB</li>
+    <li>Boot time: under 10 seconds</li>
+    <li>ISO size: 2 to 3 GB</li>
+  </ul>
+
+  <hr>
+
+  <h2>Built-in Applications</h2>
+  <ul>
+    <li>Krowser — first-party web browser</li>
+    <li>Terminal — system terminal emulator</li>
+    <li>Files — file manager</li>
+    <li>Text Editor — plain text and code editor</li>
+    <li>Settings — system configuration panel</li>
+    <li>KydeStore — native software center</li>
+  </ul>
+
+  <hr>
+
+  <h2>Build & Development</h2>
+  <p>KydeOS is built inside a WSL2 Debian environment running on Windows 10. The root filesystem is manipulated directly at the lowest level using live-build and debootstrap. No graphical remaster tools are used at any point in the build process.</p>
+  <p><strong style="font-weight: 400;">Build environment:</strong></p>
+  <ul>
+    <li>Host: WSL2 (Debian), username ace, hostname Admin</li>
+    <li>Tools: live-build, debootstrap, mksquashfs, custom shell scripts</li>
+    <li>Testing: QEMU with OVMF firmware for UEFI boot validation</li>
+    <li>CI/CD: GitHub Actions for automated build, compression, and release management</li>
+  </ul>
+  <p><strong style="font-weight: 400;">Build process:</strong></p>
+  <ul>
+    <li><strong style="font-weight: 400;">Step 1 — Rootfs construction.</strong> The base Debian Bookworm root filesystem is bootstrapped using debootstrap and configured using live-build. System packages, configuration files, custom scripts, and KydeOS-specific components are injected directly via CLI.</li>
+    <li><strong style="font-weight: 400;">Step 2 — Integrity verification.</strong> Before packaging, the rootfs is manually inspected for broken symlinks, missing dependencies, misconfigured permission bits, and any anomalies in critical system directories.</li>
+    <li><strong style="font-weight: 400;">Step 3 — Packaging.</strong> The verified rootfs is compressed using mksquashfs and assembled into a bootable ISO filesystem structure via lb build. WSL2 memory allocation is configured via .wslconfig to prevent mksquashfs crashes during compression.</li>
+    <li><strong style="font-weight: 400;">Step 4 — Virtual machine testing.</strong> The packaged ISO is booted inside QEMU with OVMF UEFI firmware. The kernel, initrd, storage controllers, network interfaces, and display outputs are all validated. Memory usage, CPU load, and disk I/O are profiled to catch performance regressions.</li>
+    <li><strong style="font-weight: 400;">Step 5 — CI/CD pipeline.</strong> On push to the main branch, GitHub Actions runners execute the full build sequence automatically, output a bootable image, draft release tags, and run security scans for compromised dependencies or outdated certificates.</li>
+  </ul>
+
+  <hr>
+
+  <h2>Release Channels</h2>
+  <h3>Nightly</h3>
+  <p>Automated builds generated from the latest commit on the main branch. These builds may be broken, incomplete, or contain regressions. Intended exclusively for developers and testers who want to track the absolute latest state of the codebase.</p>
+  <h3>Alpha</h3>
+  <p>Early feature builds produced during active development phases. Core functionality is present but stability is not guaranteed. Intended for early adopters and developer program participants who are comfortable with instability and want to provide feedback.</p>
+  <h3>Beta</h3>
+  <p>Feature-complete builds in the bug-fixing and stabilization phase. Most functionality works as intended. Regressions are being actively addressed. Suitable for more adventurous users who want to test before the stable release.</p>
+  <h3>Stable</h3>
+  <p>Fully tested, hardware-validated releases. These builds have passed the complete six-month development cycle including physical hardware testing. Recommended for general use.</p>
+
+  <hr>
+
+  <h2>Release Cycle</h2>
+  <p>KydeOS follows a strict six-month release cycle designed to maintain development sustainability and prevent burnout.</p>
+  <ul>
+    <li><strong style="font-weight: 400;">Month 1 — Rest and recovery.</strong> No new features are introduced. The developer rests completely. This is non-negotiable and exists to ensure long-term project health.</li>
+    <li><strong style="font-weight: 400;">Months 2 and 3 — Research and experimentation.</strong> New upstream Debian packages are evaluated. Cutting-edge desktop components are tested. The Material 3 theme architecture is evolved. No production commits are made during this phase.</li>
+    <li><strong style="font-weight: 400;">Months 4 and 5 — Active development and packaging.</strong> Core development work happens here. New features are integrated, bugs are fixed, and the rootfs configuration is solidified. This is the primary engineering phase of each cycle.</li>
+    <li><strong style="font-weight: 400;">Month 6 — Finalization and deployment.</strong> Rigorous physical hardware testing across multiple configurations. Documentation is updated. The stable ISO is compiled, validated, and officially published.</li>
+  </ul>
+  <p>Critical security patches are applied out-of-cycle at any time when necessary, regardless of which phase the project is currently in.</p>
+
+  <hr>
+
+  <h2>Development Roadmap</h2>
+  <p><strong style="font-weight: 400;">Phase 1 — Stable bootable base image.</strong><br>Establish a completely stable, bootable KydeOS base image derived directly from Debian sources. The system should boot reliably in QEMU via OVMF with a functional TTY and no kernel panics or mounting failures.<br>Status: Complete. KydeOS currently boots to a functional TTY in QEMU.</p>
+  
+  <p><strong style="font-weight: 400;">Phase 2 — Material 3 UI/UX integration.</strong><br>Complete deep integration of the custom Material 3 Expressive UI across all display managers and desktop surfaces. KydeShell feature-complete. All system applications styled consistently. Wayland compositor finalized.<br>Status: In progress.</p>
+  
+  <p><strong style="font-weight: 400;">Phase 3 — Automated nightly builds.</strong><br>Implement fully automated nightly build generation via GitHub Actions to facilitate continuous public testing and hardware validation across x86_64 and ARM targets.<br>Status: Planned.</p>
+  
+  <p><strong style="font-weight: 400;">Phase 4 — Native app ecosystem and update infrastructure.</strong><br>Deploy dedicated infrastructure for system updates and package distribution. KydeStore production-ready. Developer program launched publicly. Dedicated APT repository live. Full 90+ language localization validated.<br>Status: Planned.</p>
+
+  <hr>
+
+  <h2>Who Is KydeOS For?</h2>
+  <h3>Power users and enthusiasts</h3>
+  <p>If you want Debian's stability with a desktop that looks and feels genuinely modern without spending days assembling it yourself, KydeOS is built for you. Everything is configured, themed, and ready from first boot.</p>
+  <h3>Minimalist developers</h3>
+  <p>A sub-10-second boot time, approximately 300 MB idle RAM, no unnecessary background services, and a clean Debian base underneath. A fast, distraction-free environment for people who spend most of their time in a terminal anyway.</p>
+  <h3>Open source advocates</h3>
+  <p>Every line of KydeOS is public, auditable, and freely redistributable under the GPLv3. If you care about software freedom and want to see or contribute to a completely transparent, independently built operating system, KydeOS is built in that spirit.</p>
+
+  <hr>
+
+  <h2>Contributing</h2>
+  <p>KydeOS is a solo project but community contributions are welcome. If you find a bug, want to suggest a feature, or want to contribute code, open an issue or pull request on GitHub. All contributions must be compatible with the GPLv3 license.</p>
+  <p>When contributing, please keep in mind that this is a personal project maintained by one person. Response times may vary. Contributions that align with the existing design philosophy and technical direction are most likely to be considered.</p>
+
+  <hr>
+
+  <h2>License</h2>
+  <p>KydeOS is released under the GNU General Public License v3.0 (GPLv3).</p>
+  <p>Copyright (C) 2026 r1nzd</p>
+  <p>You are free to run, study, modify, and distribute KydeOS provided that all derivative works remain open source and are distributed under the same GPLv3 license. You must make corresponding source code available to any recipient of your distribution. You must include a copy of the license. You may not impose additional restrictions on the rights the license grants.</p>
+  <p>The full text of the GPLv3 is included in the LICENSE file at the root of the repository and is available at <a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank">https://www.gnu.org/licenses/gpl-3.0.html</a>.</p>
+
+  <hr>
+
+  <h2>Contact</h2>
+  <ul>
+    <li>GitHub: <a href="https://github.com/r1nzd/KydeOS" target="_blank">https://github.com/r1nzd/KydeOS</a></li>
+  </ul>
+
+  <hr>
+
+  <p style="text-align: center; font-size: 14px; margin-top: 40px; opacity: 0.7;"><em>KydeOS Aurora &middot; GPLv3 &middot; No warranty provided. Use at your own risk.</em></p>
+
+  </div>
+
+<footer style="margin-top: 48px; text-align: center; font-size: 13px; color: var(--onsv); letter-spacing: 0.2px; line-height: 1.6;">
+    <p>© 2026 Acee All Rights Reserved.</p>
+    <p style="margin-top: 4px; opacity: 0.8;">Any trademarks or logos used on this site are property of their respective owners.</p>
+    <p style="margin-top: 12px; display: flex; justify-content: center; gap: 16px;">
+            <a href="#tos" style="color:var(--ons);text-decoration:underline;">Terms of Service</a>
+      <a href="#privacy" style="color:var(--ons);text-decoration:underline;">Privacy Policy</a>
+      <a href="#eula" style="color:var(--ons);text-decoration:underline;">EULA</a>
+      <a href="#licenses" style="color:var(--ons);text-decoration:underline;">Licenses</a>
+    </p>
+  </footer>
 
 </main>
 <script>
@@ -1053,7 +1258,7 @@ function showInfo(title, desc, icon, iconBg, iconColor) {
           </button>
         </form>
       </div>
-      <div id="modalTitle" style="font-family:'Outfit','Google Sans Flex',sans-serif; font-size:22px; font-weight:500; margin-bottom:12px;">Title</div>
+      <div id="modalTitle" style="font-family:'Google Sans Flex', sans-serif; font-size:22px; font-weight: 400; margin-bottom:12px;">Title</div>
       <div id="modalDesc" style="font-size:15px; color:var(--onsv); line-height:1.6;">Description</div>
     `;
     document.body.appendChild(m);
@@ -1071,7 +1276,7 @@ function showInfo(title, desc, icon, iconBg, iconColor) {
 }
 
 function updateView() {
-  const views = ['home', 'privacy', 'eula', 'licenses'];
+  const views = ['home', 'privacy', 'eula', 'licenses', 'tos'];
   let current = window.location.hash.replace('#', '');
   if (!views.includes(current)) current = 'home';
   
