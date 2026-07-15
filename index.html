@@ -176,8 +176,7 @@ body {
 @media (min-width:1024px) {
   .card-grid { grid-template-columns:1fr 1fr 1fr; }
   .card-grid.cols-2 { grid-template-columns:1fr 1fr; }
-  .card-grid.span-last .card:last-child:nth-child(odd) { grid-column: auto; }
-  .card-grid.span-last .card:last-child { grid-column: 1 / -1; }
+  .card-grid.span-last .card:last-child:nth-child(3n + 1) { grid-column: 1 / -1; }
 }
 .card { outline: none; }
 .card[tabindex="0"] { cursor: pointer; transition: transform 200ms var(--ease), filter 200ms ease; }
@@ -1259,22 +1258,32 @@ document.addEventListener('click', function(e) {
     let iconBg = 'var(--pc)';
     let iconColor = 'var(--opc)';
     const descMap = {
-      'Environment': 'Development is conducted within WSL2 (Debian) for a streamlined and isolated build environment on Windows hosts.',
-      'Toolchain': 'Utilizing standard Debian tools like live-build and debootstrap for constructing the root filesystem and ISO image.',
-      'Testing': 'Testing is performed efficiently using QEMU virtual machines configured with OVMF for UEFI boot emulation.',
-      'Krowser': 'Our custom lightweight web browser optimized for KydeOS.',
-      'Terminal': 'A fast, GPU-accelerated terminal emulator built for Wayland.',
-      'Files': 'A simple and intuitive file manager that adheres to Material Design 3 guidelines.',
-      'Text Editor': 'A clean distraction-free editor for quick notes and configuration edits.',
-      'Settings': 'Centralized control panel for system configuration, theming, and user management.',
-      'KydeStore': 'The planned native application store for discovering, installing, and updating software securely.',
-      'Bootable KydeOS base ISO': 'We have successfully bootstrapped a minimal Debian root file system and integrated the necessary bootloaders to generate a bootable live image.',
-      'Finalize the KydeOS 1.0 base build': 'Completing the core system foundation, ensuring all necessary kernel modules, drivers, and base utilities are stable.',
-      'KydeShell v0.1 — custom Wayland compositor in Rust': 'Active development has started on KydeShell, our custom desktop environment wrapper implemented in memory-safe Rust for optimal speed and reliability.',
-      'Stabilize Material 3 Expressive UI/UX integration': 'Planned integration of a central theming engine that automatically propagates Material You color palettes across GTK/Qt applications and custom shell components.',
-      'OOBE (Out-of-Box Experience) setup wizard': 'Creating a user-friendly initial setup experience to guide users through language selection, user creation, and network configuration.',
-      'Develop exclusive app ecosystem': 'Our roadmap includes developing a suite of essential, cohesive graphical user applications tailored specifically for the KydeOS design language.',
-      'Establish a dedicated APT repository for system/app updates': 'We plan to host a dedicated package repository for pushing seamless OTA updates and curating community software.'
+      'Material 3 Expressive UI/UX': 'KydeOS deeply integrates Google\'s Material 3 Expressive design language at the system level. Unlike traditional Linux environments with fragmented theming, KydeOS enforces a strict, unified visual hierarchy including dynamic color extraction, fluid animations, and refined elevation shadows.',
+      'KydeShell': 'KydeShell is a custom desktop environment built from scratch in Rust for memory safety and resilience. It leverages the Smithay framework to implement a robust Wayland compositor, ensuring tear-free rendering and isolated application security, with XWayland fallback for legacy apps.',
+      'Performance Optimization': 'KydeOS is engineered with a ruthless focus on performance. By stripping away unnecessary bloatware and background services, it achieves an idle RAM footprint of ~300MB and sub-10s boot times, leaving resources available for actual workloads.',
+      'Debian Foundation': 'The underlying foundation relies on the rock-solid architecture of Debian Stable (Bookworm). This strategic choice provides KydeOS with unparalleled reliability, a massive repository of pre-compiled software packages, and a proven security update cadence.',
+      'Typography & Icons': 'Visual communication utilizes Google Sans Flex as the primary system font for perfect legibility across diverse display resolutions. This is thoughtfully paired with a custom-designed, geometrically precise icon set based on Material Symbols Rounded.',
+      'Packages': 'KydeOS natively supports traditional Debian packages (.deb) alongside Flatpak for sandboxed applications and AppImage binaries. Canonical\'s Snap package manager is intentionally excluded to ensure faster application startup times and a strictly decentralized software ecosystem.',
+      'Localization': 'KydeOS is built for a global audience with comprehensive localization support for over 96 distinct languages. It respects your privacy: it is free forever, contains no advertising, and restricts any minimal telemetry to a strictly opt-in basis during the initial setup.',
+      'Krowser': 'Krowser is the first-party, custom-built web browser designed exclusively for KydeOS. It is deeply integrated with the system\'s Material 3 design language and focuses on privacy, speed, and a distraction-free browsing experience optimized for Wayland.',
+      'Terminal': 'The KydeOS Terminal is a high-performance, GPU-accelerated terminal emulator built for the Wayland environment. It sheds legacy baggage to provide instantaneous rendering of complex command-line outputs, true-color support, and seamless dynamic color integration.',
+      'Files': 'The native KydeOS File Manager offers a clean, intuitive, and highly responsive interface for managing local and network storage. Adhering strictly to Material Design 3 guidelines, it features fluid animations, smart visual grouping, and fast search capabilities.',
+      'Text Editor': 'The built-in Text Editor provides a clean, distraction-free environment for taking notes or editing configuration files. It opens instantly, features intelligent syntax highlighting, and seamlessly integrates with the KydeOS clipboard and dynamic theming.',
+      'Settings': 'The KydeOS Settings application is the centralized control panel for your entire operating system. It unifies network, user, hardware, and customization options under a single, cohesive Material 3 interface, making system management accessible and logical.',
+      'KydeStore': 'KydeStore is our planned native application storefront, designed to provide a secure and curated software discovery experience. It will aggregate applications from dedicated APT repositories and community-driven Flatpaks in a highly visual interface.',
+      'Nightly': 'The Nightly update channel provides automated, bleeding-edge builds generated directly from the latest commits. This channel contains the absolute newest features but is highly experimental and intended exclusively for core developers and fearless enthusiasts.',
+      'Beta': 'The Beta update channel delivers feature-complete releases that are currently undergoing community testing and stabilization. It is perfect for early adopters who want to preview upcoming features and contribute by reporting issues.',
+      'Stable': 'The Stable update channel provides the official, hardware-validated releases intended for general end-users. Builds on this channel have passed through rigorous testing phases, offering long-term stability and carefully vetted security updates.',
+      'Environment': 'Development is meticulously conducted within a WSL2 (Windows Subsystem for Linux 2) environment running a Debian container. This provides a streamlined, isolated, and highly reproducible build environment leveraging native Linux tooling.',
+      'Toolchain': 'The build pipeline utilizes standard Debian tools like live-build and debootstrap for securely constructing the foundational root filesystem and ISO image directly from official Debian repositories.',
+      'Testing': 'Every KydeOS build undergoes rigorous testing within QEMU virtual machines configured with OVMF for UEFI boot emulation. This methodology catches critical boot regressions before ISOs are written to physical media.',
+      'Bootable KydeOS base ISO': 'We have successfully bootstrapped a minimal Debian root file system and integrated the necessary bootloaders, outputting a fully bootable live ISO image that serves as the foundation for the OS.',
+      'Finalize the KydeOS 1.0 base build': 'Completing the core system foundation by ensuring all necessary kernel modules, open-source graphics drivers, networking stacks, and base system utilities are rock-solid and fully integrated.',
+      'KydeShell v0.1 — custom Wayland compositor in Rust': 'Active development is underway for KydeShell v0.1, establishing core Wayland compositor capabilities, including basic window management and the foundational rendering pipeline.',
+      'Stabilize Material 3 Expressive UI/UX integration': 'Meticulous integration of our central theming engine to ensure dynamic color palettes, typography, and fluid animations flawlessly propagate across all system surfaces and applications.',
+      'OOBE (Out-of-Box Experience) setup wizard': 'Designing a welcoming graphical wizard for the first boot, guiding new users through language selection, user account creation, network configuration, and opt-in privacy toggles.',
+      'Develop exclusive app ecosystem': 'Development of a suite of essential, cohesive graphical user applications tailored specifically to adhere to the KydeOS Material 3 design language as native extensions.',
+      'Establish a dedicated APT repository for system/app updates': 'Establishing and hosting a dedicated, cryptographically signed APT package repository to push OTA system updates, distribute first-party apps, and curate community software.'
     };
     if (card.classList.contains('warn')) {
       title = 'Disclaimer';
@@ -1286,7 +1295,7 @@ document.addEventListener('click', function(e) {
       const elDesc = card.querySelector('.feat-desc');
       const elIco = card.querySelector('.ms');
       title = elTitle ? elTitle.textContent.trim() : 'Feature';
-      desc = elDesc ? elDesc.textContent.trim() : (descMap[title] || '');
+      desc = descMap[title] || (elDesc ? elDesc.textContent.trim() : '');
       icon = elIco ? elIco.textContent : 'auto_awesome';
     } else if (card.classList.contains('row-card')) {
       const elLbl = card.querySelector('.row-lbl');
